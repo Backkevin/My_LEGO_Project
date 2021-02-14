@@ -14,7 +14,7 @@
 		* [EAGLE FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Sensor_Digital_I2C/EAGLE)
 		
 	+ Work in progress !
->![]()
+>![](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Sensor_Digital_I2C/IMAGE/Default.jpg)
 
 -----------------------------------------------------------------
 
@@ -29,7 +29,7 @@
 		* [EAGLE FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Signal_I2C/EAGLE)
 		
 	+ Work in progress !
->![]()
+>![](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Signal_I2C/IMAGE/Default.jpg)
 
 -----------------------------------------------------------------
 
@@ -44,7 +44,7 @@
 		* [EAGLE FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Switch_I2C/EAGLE)
 		
 	+ Work in progress !
->![]()
+>![](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Switch_I2C/IMAGE/Default.jpg)
 
 -----------------------------------------------------------------
 
@@ -54,11 +54,11 @@
 	+ V1.0
 		* Work 50%
 		* Partlist KO
-		* [INO FILE](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoStationController_I2C/EAGLE)
+		* [INO FILE](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoStationController_I2C/INO/MattzoStationController_I2C)
 		* [GERBER FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoStationController_I2C/GERBER%20FILES)
 		* [EAGLE FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoStationController_I2C/EAGLE)
 		
 	+ Work in progress !
->![]()
+>![](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoStationController_I2C/IMAGE/Default.jpg)
 
 -----------------------------------------------------------------
