@@ -4,8 +4,8 @@
 		* Work 50%
 		* Partlist not OK
 	+ Work in progress !
-<img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/Default.jpg">
-<img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/Default.jpg">
+<img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/CPU.jpg">
+<img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/OUTPUT.jpg">
 
 ### Partslist 
                     
