@@ -6,7 +6,7 @@
 
 + [MattzoController_Sensor_Digital_I2C](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Sensor_Digital_I2C)
 
-	+ V1.0
+	+ V2.0
 		* Work 50%
 		* Partlist KO
 		* [INO FILE](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Sensor_Digital_I2C/INO/MattzoController_Sensor_Digital_I2C)
