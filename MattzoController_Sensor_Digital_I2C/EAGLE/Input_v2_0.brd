@@ -183,12 +183,12 @@
 <hole x="86.36" y="3.81" drill="3.5"/>
 <text x="7.62" y="86.36" size="1.778" layer="25">Input V2.0</text>
 <text x="83.82" y="86.36" size="1.778" layer="26" rot="MR0">Input V2.0</text>
-<text x="27.94" y="26.67" size="6.4516" layer="26">2</text>
-<text x="27.94" y="63.5" size="6.4516" layer="26">1</text>
-<text x="68.58" y="2.54" size="6.4516" layer="26">1</text>
-<text x="17.78" y="2.54" size="6.4516" layer="26">2</text>
+<text x="27.94" y="26.67" size="6.4516" layer="25">2</text>
+<text x="27.94" y="63.5" size="6.4516" layer="25">1</text>
+<text x="68.58" y="2.54" size="6.4516" layer="25">1</text>
+<text x="17.78" y="2.54" size="6.4516" layer="25">2</text>
 <text x="36.83" y="6.35" size="1.778" layer="25">By DjPredator69</text>
-<text x="54.61" y="6.35" size="1.778" layer="25" rot="MR0">By DjPredator69</text>
+<text x="54.61" y="6.35" size="1.778" layer="26" rot="MR0">By DjPredator69</text>
 </plain>
 <libraries>
 <library name="con-panduit" urn="urn:adsk.eagle:library:169">
