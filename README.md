@@ -37,7 +37,7 @@
 
 + [MattzoController_Switch_I2C](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Switch_I2C)
 
-	+ V1.1
+	+ V1.0
 		* Work 50%
 		* Partlist KO
 		* [INO FILE](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Switch_I2C/INO/MattzoController_Switch_I2C)
