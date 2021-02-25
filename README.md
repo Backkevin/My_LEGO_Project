@@ -16,7 +16,7 @@
 	+ Work in progress !
 >+ V1.1
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/CPU.jpg)
->+ V1.1
+>+ V1.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/INPUT.jpg)
 -----------------------------------------------------------------
 
@@ -33,7 +33,7 @@
 	+ Work in progress !
 >+ V1.1
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/CPU.jpg)
->+ V1.1
+>+ V1.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/OUTPUT.jpg)
 
 -----------------------------------------------------------------
@@ -51,7 +51,7 @@
 	+ Work in progress !
 >+ V1.1
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Switch_I2C/IMAGE/CPU.jpg)
->+ V1.1
+>+ V1.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Switch_I2C/IMAGE/Default.jpg)
 
 -----------------------------------------------------------------
@@ -69,7 +69,7 @@
 	+ Work in progress !
 >+ V1.1
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/CPU.jpg)
->+ V1.1
+>+ V1.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/Default.jpg)
 
 -----------------------------------------------------------------
