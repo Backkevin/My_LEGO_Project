@@ -24,7 +24,7 @@
 // ***************************
 
 // Number of sensors connected or connectable to the controller
-const int NUM_SENSORS = 8;    //val=8   ==> 1 PCF8574 or val=16  ==> 2 PCF8574 
+const int NUM_SENSORS = 16;    //val=8   ==> 1 PCF8574 or val=16  ==> 2 PCF8574 
                               //val=24  ==> 3 PCF8574 or val=32  ==> 4 PCF8574
                               //val=40  ==> 5 PCF8574 or val=48  ==> 6 PCF8574
                               //val=56  ==> 7 PCF8574 or val=64  ==> 8 PCF8574
