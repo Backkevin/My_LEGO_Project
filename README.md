@@ -14,7 +14,9 @@
 		* [EAGLE FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Sensor_Digital_I2C/EAGLE)
 		
 	+ Work in progress !
+>+ V1.1
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/CPU.jpg)
+>+ V1.1
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/INPUT.jpg)
 -----------------------------------------------------------------
 
@@ -29,7 +31,9 @@
 		* [EAGLE FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Signal_I2C/EAGLE)
 		
 	+ Work in progress !
+>+ V1.1
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/CPU.jpg)
+>+ V1.1
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/OUTPUT.jpg)
 
 -----------------------------------------------------------------
@@ -45,7 +49,9 @@
 		* [EAGLE FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Switch_I2C/EAGLE)
 		
 	+ Work in progress !
+>+ V1.1
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Switch_I2C/IMAGE/CPU.jpg)
+>+ V1.1
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Switch_I2C/IMAGE/Default.jpg)
 
 -----------------------------------------------------------------
@@ -61,7 +67,9 @@
 		* [EAGLE FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoStationController_I2C/EAGLE)
 		
 	+ Work in progress !
+>+ V1.1
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/CPU.jpg)
+>+ V1.1
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/Default.jpg)
 
 -----------------------------------------------------------------
