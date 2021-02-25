@@ -19,12 +19,12 @@
 #include <PCF8574.h>                              //
 PCF8574 PCF_01(0x38);                             // set adr from PCF8574   ==> 000
 PCF8574 PCF_02(0x39);                             // set adr from PCF8574   ==> 100
-PCF8574 PCF_03(0x40);                             // set adr from PCF8574   ==> 010
-PCF8574 PCF_04(0x41);                             // set adr from PCF8574   ==> 110
-PCF8574 PCF_05(0x42);                             // set adr from PCF8574   ==> 001
-PCF8574 PCF_06(0x43);                             // set adr from PCF8574   ==> 101
-PCF8574 PCF_07(0x44);                             // set adr from PCF8574   ==> 011
-PCF8574 PCF_08(0x45);                             // set adr from PCF8574   ==> 111
+PCF8574 PCF_03(0x3A);                             // set adr from PCF8574   ==> 010
+PCF8574 PCF_04(0x3B);                             // set adr from PCF8574   ==> 110
+PCF8574 PCF_05(0x3C);                             // set adr from PCF8574   ==> 001
+PCF8574 PCF_06(0x3D);                             // set adr from PCF8574   ==> 101
+PCF8574 PCF_07(0x3E);                             // set adr from PCF8574   ==> 011
+PCF8574 PCF_08(0x3F);                             // set adr from PCF8574   ==> 111
 
 
 void setup() {
@@ -34,148 +34,138 @@ void setup() {
     pinMode(SIGNALPORT_PIN[i], OUTPUT);
   }
   */
-  Wire.begin();
+ Wire.begin();
   
   delay(500);
-
+  
   // load config from EEPROM, initialize Wifi, MQTT etc.
   setupMattzoController();
-  
+
   delay(500);
+
+  int countinit = 0;
   
   PCF_01.begin();
   if (!PCF_01.begin())
   {
     mcLog("1 could not initialize...");
   }else{
-    mcLog("=>1 PCF8574 is initialized");  
+    mcLog("=>PCF8574 NR.1 is initialized");  
   }
   if (!PCF_01.isConnected())
   {
     mcLog("=>(1) not connected");
     while(1);
   }else{
-    mcLog("=>1 PCF8574 is connected");  
+    countinit = countinit+1;
   }
 
-  if(NUM_SIGNALPORTS > 8 && NUM_SIGNALPORTS < 16)
+  if(NUM_SIGNALPORTS > 8 && NUM_SIGNALPORTS <= 16)
   {
     PCF_02.begin();
     if (!PCF_02.begin())
     {
       mcLog("(2) could not initialize...");
     }else{
-      mcLog("=>2 PCF8574 are initialized");  
+      mcLog("=>PCF8574 NR.2 is initialized");  
     }
     if (!PCF_02.isConnected())
     {
       mcLog("=>(2) not connected");
       while(1);
     }else{
-      mcLog("=>2 PCF8574 are connected");  
+      countinit = countinit+1;
     }
-  }else{
-    mcLog("=>only 1 PCF8574 is connected");
   }
 
-  if(NUM_SIGNALPORTS > 16 && NUM_SIGNALPORTS < 24)
+  if(NUM_SIGNALPORTS > 16 && NUM_SIGNALPORTS <= 24)
   {
     PCF_03.begin();
     if (!PCF_03.begin())
     {
       mcLog("(3) could not initialize...");
     }else{
-      mcLog("=>3 PCF8574 are initialized");  
+      mcLog("=>PCF8574 NR.3 is initialized");  
     }
     if (!PCF_03.isConnected())
     {
       mcLog("=>(3) not connected");
       while(1);
     }else{
-      mcLog("=>3 PCF8574 are connected");  
+      countinit = countinit+1;
     }
-  }else{
-    mcLog("=>only 2 PCF8574 is connected");
   }
 
-  if(NUM_SIGNALPORTS > 24 && NUM_SIGNALPORTS < 32)
+  if(NUM_SIGNALPORTS > 24 && NUM_SIGNALPORTS <= 32)
   {
     PCF_04.begin();
     if (!PCF_04.begin())
     {
       mcLog("(4) could not initialize...");
     }else{
-      mcLog("=>4 PCF8574 are initialized");  
+      //mcLog("=>PCF8574 NR.4 is initialized");  
     }
     if (!PCF_04.isConnected())
     {
       mcLog("=>(4) not connected");
       while(1);
-    }else{
-      mcLog("=>4 PCF8574 are connected");  
+    }else{  
+      countinit = countinit+1;
     }
-  }else{
-    mcLog("=>only 3 PCF8574 is connected");
   }
 
-  if(NUM_SIGNALPORTS > 32 && NUM_SIGNALPORTS < 40)
+  if(NUM_SIGNALPORTS > 32 && NUM_SIGNALPORTS <= 40)
   {
     PCF_05.begin();
     if (!PCF_05.begin())
     {
       mcLog("(5) could not initialize...");
     }else{
-      mcLog("=>5 PCF8574 are initialized");  
+      mcLog("=>PCF8574 NR.5 is initialized");  
     }
     if (!PCF_05.isConnected())
     {
       mcLog("=>(5) not connected");
       while(1);
     }else{
-      mcLog("=>5 PCF8574 are connected");  
+      countinit = countinit+1;
     }
-  }else{
-    mcLog("=>only 4 PCF8574 is connected");
   }
 
-  if(NUM_SIGNALPORTS > 40 && NUM_SIGNALPORTS < 48)
+  if(NUM_SIGNALPORTS > 40 && NUM_SIGNALPORTS <= 48)
   {
     PCF_06.begin();
     if (!PCF_06.begin())
     {
       mcLog("(6) could not initialize...");
     }else{
-      mcLog("=>6 PCF8574 are initialized");  
+      mcLog("=>PCF8574 NR.6 is initialized");  
     }
     if (!PCF_06.isConnected())
     {
       mcLog("=>(6) not connected");
       while(1);
-    }else{
-      mcLog("=>6 PCF8574 are connected");  
+    }else{ 
+      countinit = countinit+1;
     }
-  }else{
-    mcLog("=>only 5 PCF8574 is connected");
   }
 
-  if(NUM_SIGNALPORTS > 48 && NUM_SIGNALPORTS < 56)
+  if(NUM_SIGNALPORTS > 48 && NUM_SIGNALPORTS <= 56)
   {
     PCF_07.begin();
     if (!PCF_07.begin())
     {
       mcLog("(7) could not initialize...");
     }else{
-      mcLog("=>7 PCF8574 are initialized");  
+      mcLog("=>PCF8574 NR.7 is initialized");  
     }
     if (!PCF_07.isConnected())
     {
       mcLog("=>(7) not connected");
       while(1);
-    }else{
-      mcLog("=>7 PCF8574 are connected");  
+    }else{ 
+      countinit = countinit+1;
     }
-  }else{
-    mcLog("=>only 6 PCF8574 is connected");
   }
 
   if(NUM_SIGNALPORTS > 56 )
@@ -185,18 +175,20 @@ void setup() {
     {
       mcLog("(8) could not initialize...");
     }else{
-      mcLog("=>8 PCF8574 are initialized");  
+      mcLog("=>PCF8574 NR.8 is initialized");  
     }
     if (!PCF_08.isConnected())
     {
       mcLog("=>(8) not connected");
       while(1);
     }else{
-      mcLog("=>8 PCF8574 are connected");  
+      countinit = countinit+1;
     }
-  }else{
-    mcLog("=>only 7 PCF8574 is connected");
   }
+
+mcLog("=>Total "); 
+mcLog(String(countinit)); 
+mcLog(" PCF8574 are connected");
 
   
 }
