@@ -11,14 +11,14 @@
                     
   Part Name   |      PIC      |   Part Info   | Part Quantity |   Part Link 
 ------------- | ------------- | ------------- | ------------- | -------------
- LED|  | LED Rot 3mm | 8 |
- LED|  | LED Grün 3mm | 8 |
-R |  | 470 Ohm | 32 |
-Jumper |  |  |  |
-C |  | 100nF |  |
-A,B |  | Dip switch | 2 |
-R array |  | 10K Wiederstandsarray | 2 |
-PCF8574P |  | 2 |  |
-ULN2803A |  | 2 |  |
-74HC540N |  | 2 |  |
+LED           |  | LED Rot 3mm | 8 |
+LED           |  | LED Grün 3mm | 8 |
+R             |  | 470 Ohm | 32 |
+Jumper        |  |  |  |
+C             |  | 100nF |  |
+A,B           |  | Dip switch | 2 |
+R array       |  | 10K Wiederstandsarray | 2 |
+PCF8574P      |  | I/O | 2 |
+ULN2803A      |  | Treiber | 2 |
+74HC540N      |  | Inverter | 2 |
  
