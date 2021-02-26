@@ -35,7 +35,7 @@
 		* [GERBER FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Signal_I2C/GERBER%20FILES)
 		* [EAGLE FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Signal_I2C/EAGLE)
 		
-	+ Work in progress !
+	+ Work !
 >+ V1.1
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/CPU.jpg)
 >+ V1.0
