@@ -9,30 +9,26 @@
 #define MATTZO_CONTROLLER_TYPE "MattzoStationController"
 #include <ESP8266WiFi.h>                          // WiFi library for ESP-8266
 #include <Servo.h>                                // Servo library
-#include "MattzoStationController_Configuration.h" // this file should be placed in the same folder
+#include "MattzoSwitchController_Configuration.h" // this file should be placed in the same folder
 #include "MattzoController_Library.h"             // this file needs to be placed in the Arduino library folder
 
-#if USE_PCA9685
+
 #include <Wire.h>                                 // Built-in library for I2C
 #include <Adafruit_PWMServoDriver.h>              // Adafruit PWM Servo Driver Library for PCA9685 port expander. Tested with version 2.4.0.
-#endif
-
-#include <PCF8574.h>                              //
-PCF8574 PCF_01(0x38);                             // set adr from PCF8574   ==> 000
-PCF8574 PCF_02(0x39);                             // set adr from PCF8574   ==> 100
-PCF8574 PCF_03(0x3A);                             // set adr from PCF8574   ==> 010
-PCF8574 PCF_04(0x3B);                             // set adr from PCF8574   ==> 110
 
 
 // SERVO VARIABLES AND CONSTANTS
 
 // Create servo objects to control servos
 Servo servo[NUM_SWITCHPORTS];
+#define SERVO_FREQ 50 // Analog servos run at ~50 Hz updates
 
 // Create PWM Servo Driver object (for PCA9685)
-#if USE_PCA9685
-Adafruit_PWMServoDriver pca9685 = Adafruit_PWMServoDriver();  // only board 0x40 is supported in this version of the firmware
-#define SERVO_FREQ 50 // Analog servos run at ~50 Hz updates
+#if USE_PCA9685_1
+Adafruit_PWMServoDriver pca9685_1 = Adafruit_PWMServoDriver(0x40);  // only board 0x40 is supported in this version of the firmware A0=0,A1=0,A2=0,A3=0,A4=0,A5=0
+#endif
+#if USE_PCA9685_2
+Adafruit_PWMServoDriver pca9685_2 = Adafruit_PWMServoDriver(0x41);  // only board 0x41 is supported in this version of the firmware A10=1,A1=0,A2=0,A3=0,A4=0,A5=0
 #endif
 
 
@@ -55,13 +51,6 @@ bool servoSleepMode = false;
 unsigned long servoSleepModeFrom_ms = 0;
 
 
-// SENSOR VARIABLES AND CONSTANTS
-
-// Time in milliseconds until release event is reported after sensor has lost contact
-const int SENSOR_RELEASE_TICKS = 100;
-bool sensorState[NUM_SENSORS];
-int sensorTriggerState[NUM_SENSORS];
-int lastSensorContactMillis[NUM_SENSORS];
 
 
 
@@ -70,8 +59,8 @@ void setup() {
   
   
   // initialize PWM Servo Driver object (for PCA9685)
-#if USE_PCA9685
-  setupPCA9685();
+#if USE_PCA9685_1
+  setupPCA9685_1();
 
   // Switch PCA9685 off
   if (PCA9685_OE_PIN_INSTALLED) {
@@ -80,59 +69,40 @@ void setup() {
   }
 #endif
 
-  // initialize servo pins and turn servos to start position
-  for (int i = 0; i < NUM_SWITCHPORTS; i++) {
-    if (SWITCHPORT_PIN_TYPE[i] == 0) {
-      // servo connected directly to the controller
-      servo[i].attach(SWITCHPORT_PIN[i]);
-      servo[i].write(SERVO_START);
-      delay(SWITCH_DELAY);
-    }
-    else if (SWITCHPORT_PIN_TYPE[i] == 0x40) {
-      // servo connected to PCA9685
-      // no action required
-    }
-  }
-
   
+  // initialize PWM Servo Driver object (for PCA9685)
+#if USE_PCA9685_2
+  setupPCA9685_2();
 
-  // initialize sensor pins
-  for (int i = 0; i < NUM_SENSORS; i++) {
-    pinMode(SENSOR_PIN[i], INPUT_PULLUP);
-    sensorState[i] = false;
-    sensorTriggerState[i] = (SENSOR_PIN[i] == D8) ? HIGH : LOW;
+  // Switch PCA9685 off
+  if (PCA9685_OE_PIN_INSTALLED) {
+    pinMode(PCA9685_OE_PIN, OUTPUT);
+    setServoSleepMode(true);
   }
-
+#endif
 
   // load config from EEPROM, initialize Wifi, MQTT etc.
   setupMattzoController();
 
-  Wire.begin();
-
-  PCF_01.begin();
   
-  if (PCF_01.isConnected())
-  {
-    mcLog("=>(1) connected");
-
-  }
-  PCF_02.begin();
-  
-  if (PCF_02.isConnected())
-  {
-    mcLog("=>(2) connected");
-
-  }
-
-
 }
 
-#if USE_PCA9685
-void setupPCA9685() {
+#if USE_PCA9685_1
+void setupPCA9685_1() {
   // Initialize PWM Servo Driver object (for PCA9685)
-  pca9685.begin();
-  pca9685.setOscillatorFrequency(27000000);
-  pca9685.setPWMFreq(SERVO_FREQ);
+  pca9685_1.begin();
+  pca9685_1.setOscillatorFrequency(27000000);
+  pca9685_1.setPWMFreq(SERVO_FREQ);
+  delay(10);
+}
+#endif
+
+#if USE_PCA9685_2
+void setupPCA9685_2() {
+  // Initialize PWM Servo Driver object (for PCA9685)
+  pca9685_2.begin();
+  pca9685_2.setOscillatorFrequency(27000000);
+  pca9685_2.setPWMFreq(SERVO_FREQ);
   delay(10);
 }
 #endif
@@ -179,7 +149,7 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
       return;
     }
     mcLog("port1: " + String(rr_port1));
-    if ((rr_port1 < 1 || rr_port1 > NUM_SWITCHPORTS) && (rr_port1 < 1001 || rr_port1 > 1004)) {
+    if ((rr_port1 < 1 || rr_port1 > 32) && (rr_port1 < 1001 || rr_port1 > 1018)) {
       mcLog("Message disgarded, this controller does not have such a port.");
       return;
     }
@@ -239,40 +209,122 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
       return;
     }
 
-    // Check if port is between 1001 and 1004 -> special rules for trixbrix double slip switches apply!
-    if (rr_port1 >= 1001 && rr_port1 <= 1004) {
+    // Check if port is between 1001 and 1008 -> special rules for trixbrix double slip switches apply!
+    if (rr_port1 >= 1001 && rr_port1 <= 1008) {
       int servoPort1;
       int servoPort2;
 
       // port 1001 -> double slip switch 1 / side A / ports 1 and 2
       if (rr_port1 == 1001) {
         servoPort1 = 1;
-        servoPort2 = 2;
-        // port 1002 -> double slip switch 1 / side B / ports 3 and 4
+        servoPort2 = 2;  
       }
+      // port 1002 -> double slip switch 1 / side B / ports 3 and 4
       else if (rr_port1 == 1002) {
         servoPort1 = 3;
         servoPort2 = 4;
-        // port 1003 -> double slip switch 2 / side A / ports 5 and 6
       }
+      // port 1003 -> double slip switch 2 / side A / ports 5 and 6
       else if (rr_port1 == 1003) {
         servoPort1 = 5;
         servoPort2 = 6;
-        // port 1004 -> double slip switch 2 / side B / ports 7 and 8
       }
+      // port 1004 -> double slip switch 2 / side B / ports 7 and 8
       else if (rr_port1 == 1004) {
         servoPort1 = 7;
         servoPort2 = 8;
       }
+      // port 1005 -> double slip switch 3 / side A / ports 1 and 2
+      else if (rr_port1 == 1005) {
+        servoPort1 = 9;
+        servoPort2 = 10;
+      }
+      // port 1006 -> double slip switch 3 / side B / ports 3 and 4
+      else if (rr_port1 == 1006) {
+        servoPort1 = 11;
+        servoPort2 = 12;
+      }
+      // port 1007 -> double slip switch 4 / side A / ports 5 and 6
+      else if (rr_port1 == 1007) {
+        servoPort1 = 13;
+        servoPort2 = 14;
+      }
+      // port 1008 -> double slip switch 4 / side B / ports 7 and 8
+      else if (rr_port1 == 1008) {
+        servoPort1 = 15;
+        servoPort2 = 16;
+      }
 
       mcLog("Turning double slip switch servos on port " + String(servoPort1) + " and " + String(servoPort2) + " to angle " + String(servoAngle));
-      setServoAngle(servoPort1 - 1, servoAngle);
-      setServoAngle(servoPort2 - 1, servoAngle);
+      setServoAngle_1(servoPort1 - 1, servoAngle);
+      setServoAngle_1(servoPort2 - 1, servoAngle);
     }
-    else {
+    else if(rr_port1 >= 1 && rr_port1 <= 16) {
       mcLog("Turning servo on port " + String(rr_port1) + " to angle " + String(servoAngle));
-      setServoAngle(rr_port1 - 1, servoAngle);
+      setServoAngle_1(rr_port1 - 1, servoAngle);
     }
+
+
+
+    
+// Check if port is between 2001 and 2004 -> special rules for trixbrix double slip switches apply!
+    if (rr_port1 >= 1011 && rr_port1 <= 1018) {
+      int servoPort3;
+      int servoPort4;
+
+      // port 1011 -> double slip switch 5 / side A / ports 1 and 2
+      if (rr_port1 == 1011) {
+        servoPort3 = 1;
+        servoPort4 = 2;  
+      }
+      // port 1012 -> double slip switch 5 / side B / ports 3 and 4
+      else if (rr_port1 == 1012) {
+        servoPort3 = 3;
+        servoPort4 = 4;
+      }
+      // port 1013 -> double slip switch 6 / side A / ports 5 and 6
+      else if (rr_port1 == 1013) {
+        servoPort3 = 5;
+        servoPort4 = 6;
+      }
+      // port 1014 -> double slip switch 6 / side B / ports 7 and 8
+      else if (rr_port1 == 1014) {
+        servoPort3 = 7;
+        servoPort4 = 8;
+      }
+      // port 1015 -> double slip switch 7 / side A / ports 1 and 2
+      else if (rr_port1 == 1015) {
+        servoPort3 = 9;
+        servoPort4 = 10;
+      }
+      // port 1016 -> double slip switch 7 / side B / ports 3 and 4
+      else if (rr_port1 == 1016) {
+        servoPort3 = 11;
+        servoPort4 = 12;
+      }
+      // port 1017 -> double slip switch 8 / side A / ports 5 and 6
+      else if (rr_port1 == 1017) {
+        servoPort3 = 13;
+        servoPort4 = 14;
+      }
+      // port 1018 -> double slip switch 8 / side B / ports 7 and 8
+      else if (rr_port1 == 1018) {
+        servoPort3 = 15;
+        servoPort4 = 16;
+      }
+
+      mcLog("Turning double slip switch servos on port " + String(servoPort3) + " and " + String(servoPort4) + " to angle " + String(servoAngle));
+      setServoAngle_2(servoPort3 - 1, servoAngle);
+      setServoAngle_2(servoPort4 - 1, servoAngle);
+    }
+    else if(rr_port1 >= 17 && rr_port1 <= 32) {
+      mcLog("Turning servo on port " + String(rr_port1) + " to angle " + String(servoAngle));
+      setServoAngle_2(rr_port1 - 17, servoAngle);
+    }
+
+    
+
+    
     return;
     // end of switch command handling
   }
@@ -302,10 +354,7 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
       return;
     }
     mcLog("port: " + String(rr_port));
-    if (rr_port < 1 || rr_port > NUM_SIGNALPORTS) {
-      mcLog("Message disgarded, as this controller does not have such a port.");
-      return;
-    }
+    
 
     // query cmd attribute. This is the desired switch setting and can either be "turnout" or "straight".
     const char* rr_cmd = "-unknown-";
@@ -315,16 +364,7 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
     }
     mcLog("cmd: " + String(rr_cmd));
 
-    // set signal LED for the port on/off
-    if (strcmp(rr_cmd, "on") == 0) {
-      setSignalLED(rr_port - 1, true);
-    }
-    else if (strcmp(rr_cmd, "off") == 0) {
-      setSignalLED(rr_port - 1, false);
-    }
-    else {
-      mcLog("Signal port command unknown - message disregarded.");
-    }
+    
     return;
     // end of signal handling
   }
@@ -332,78 +372,37 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
   mcLog("No <sw> or <co> node found. Message disregarded.");
 }
 
-void sendSensorEvent2MQTT(int sensorPort, int sensorState) {
-  String sensorRocId = MATTZO_CONTROLLER_TYPE + String(mattzoControllerId) + "-" + String(sensorPort + 1);  // e.g. "MattzoController12345-3"
-  String stateString = sensorState ? "true" : "false";
 
-  // compile mqtt message. Parameters:
-  //   id: Combination of sensor name and port (e.g. MattzoController12345-3). The reported port (the "logic" port) is 1 count higher than the internal port number in the sensor, e.g. port 2 in the sensor equals 3 in Rocrail)
-  //   bus: controller number
-  //   address: port number (internal port number plus 1)
-  // both id or bus/address can be used in Rocrail. If id is used, it superseeds the combination of bus and address
-  String mqttMessage = "<fb id=\"" + sensorRocId + "\" bus=\"" + String(mattzoControllerId) + "\" addr=\"" + String(sensorPort + 1) + "\" state=\"" + stateString + "\"/>";
-  mcLog("Sending MQTT message: " + mqttMessage);
-  char mqttMessage_char[255];   // message is usually 61 chars, so 255 chars should be enough
-  mqttMessage.toCharArray(mqttMessage_char, mqttMessage.length() + 1);
-  mqttClient.publish("rocrail/service/client", mqttMessage_char);
-}
 
-// Switches LED on if one or more sensors has contact
-// Switches LED off if no sensor has contact
-void setLEDBySensorStates() {
-  bool ledOnOff = false;
-  for (int i = 0; i < NUM_SENSORS; i++) {
-    if (sensorState[i]) {
-      statusLEDState = true;
-      return;
-    }
-  }
-  statusLEDState = false;
-}
-
-void monitorSensors() {
-  for (int i = 0; i < NUM_SENSORS; i++) {
-    int sensorValue = digitalRead(SENSOR_PIN[i]);
-
-    if (sensorValue == sensorTriggerState[i]) {
-      // Contact -> report contact immediately
-      if (!sensorState[i]) {
-        mcLog("Sensor " + String(i) + " triggered.");
-        sendSensorEvent2MQTT(i, true);
-        sensorState[i] = true;
-      }
-      lastSensorContactMillis[i] = millis();
-    }
-    else {
-      // No contact for SENSOR_RELEASE_TICKS milliseconds -> report sensor has lost contact
-      if (sensorState[i] && (millis() > lastSensorContactMillis[i] + SENSOR_RELEASE_TICKS)) {
-        mcLog("Sensor " + String(i) + " released.");
-        sendSensorEvent2MQTT(i, false);
-        sensorState[i] = false;
-      }
-    }
-  }
-
-  setLEDBySensorStates();
-}
 
 // sets the servo arm to a desired angle
-void setServoAngle(int servoIndex, int servoAngle) {
+void setServoAngle_1(int servoIndex, int servoAngle) {
   if (servoIndex >= 0 && servoIndex < NUM_SWITCHPORTS) {
-    if (SWITCHPORT_PIN_TYPE[servoIndex] == 0) {
-      servo[servoIndex].write(servoAngle);
-    }
-#if USE_PCA9685
-    else if (SWITCHPORT_PIN_TYPE[servoIndex] == 0x40) {
-      setServoSleepMode(false);
-      pca9685.setPWM(SWITCHPORT_PIN[servoIndex], 0, mapAngle2PulseLength(servoAngle));
-    }
+#if USE_PCA9685_1
+    setServoSleepMode(false);
+    pca9685_1.setPWM(SWITCHPORT_PIN[servoIndex], 0, mapAngle2PulseLength(servoAngle));   
 #endif
     delay(SWITCH_DELAY);
   }
   else {
     // this should not happen
-    mcLog("WARNING: servo index " + String(servoIndex) + " out of range!");
+    mcLog("WARNING_1: servo index " + String(servoIndex) + " out of range!");
+  }
+}
+
+
+// sets the servo arm to a desired angle
+void setServoAngle_2(int servoIndex, int servoAngle) {
+  if (servoIndex >= 0 && servoIndex < NUM_SWITCHPORTS) {
+#if USE_PCA9685_2
+    setServoSleepMode(false);
+    pca9685_2.setPWM(SWITCHPORT_PIN[servoIndex], 0, mapAngle2PulseLength(servoAngle));   
+#endif
+    delay(SWITCH_DELAY);
+  }
+  else {
+    // this should not happen
+    mcLog("WARNING_2: servo index " + String(servoIndex) + " out of range!");
   }
 }
 
@@ -439,16 +438,10 @@ void checkEnableServoSleepMode() {
   }
 }
 
-// switches a signal on or off
-void setSignalLED(int signalIndex, bool ledState) {
-  mcLog("Setting signal LED " + String(signalIndex) + " to " + String(ledState));
-  
-    PCF_01.write(SIGNALPORT_PIN[signalIndex], ledState ? LOW : HIGH);
-  
-}
+
 
 void loop() {
   loopMattzoController();
   checkEnableServoSleepMode();
-  monitorSensors();
+
 }

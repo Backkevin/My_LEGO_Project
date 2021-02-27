@@ -1089,25 +1089,25 @@ Based on the previous libraries:
 <segment>
 <pinref part="J3" gate="G$1" pin="2"/>
 <wire x1="172.72" y1="81.28" x2="175.26" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="175.26" y1="81.28" x2="175.26" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="J2" gate="G$1" pin="2"/>
-<pinref part="U$2" gate="G$1" pin="OUT+"/>
-<wire x1="175.26" y1="63.5" x2="175.26" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="185.166" y1="63.5" x2="175.26" y2="63.5" width="0.1524" layer="91"/>
-<junction x="175.26" y="63.5"/>
+<wire x1="175.26" y1="81.28" x2="175.26" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="OUT-"/>
+<wire x1="175.26" y1="68.58" x2="175.26" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="185.166" y1="68.58" x2="175.26" y2="68.58" width="0.1524" layer="91"/>
+<junction x="175.26" y="68.58"/>
 </segment>
 </net>
 <net name="N$2" class="0">
 <segment>
 <pinref part="J3" gate="G$1" pin="1"/>
 <wire x1="172.72" y1="83.82" x2="177.8" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="177.8" y1="83.82" x2="177.8" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="J2" gate="G$1" pin="1"/>
-<wire x1="177.8" y1="68.58" x2="177.8" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="83.82" x2="177.8" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="63.5" x2="177.8" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="177.8" y1="33.02" x2="175.26" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="OUT-"/>
-<wire x1="185.166" y1="68.58" x2="177.8" y2="68.58" width="0.1524" layer="91"/>
-<junction x="177.8" y="68.58"/>
+<pinref part="U$2" gate="G$1" pin="OUT+"/>
+<wire x1="185.166" y1="63.5" x2="177.8" y2="63.5" width="0.1524" layer="91"/>
+<junction x="177.8" y="63.5"/>
 </segment>
 </net>
 <net name="N$11" class="0">
