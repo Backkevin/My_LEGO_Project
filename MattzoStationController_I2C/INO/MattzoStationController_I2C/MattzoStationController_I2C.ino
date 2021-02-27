@@ -15,9 +15,13 @@
 #if USE_PCA9685
 #include <Wire.h>                                 // Built-in library for I2C
 #include <Adafruit_PWMServoDriver.h>              // Adafruit PWM Servo Driver Library for PCA9685 port expander. Tested with version 2.4.0.
-#include <PCF8574.h>                              //
-PCF8574 PCF_01(0x38);                             // set adr from PCF8574
 #endif
+
+#include <PCF8574.h>                              //
+PCF8574 PCF_01(0x38);                             // set adr from PCF8574   ==> 000
+PCF8574 PCF_02(0x39);                             // set adr from PCF8574   ==> 100
+PCF8574 PCF_03(0x3A);                             // set adr from PCF8574   ==> 010
+PCF8574 PCF_04(0x3B);                             // set adr from PCF8574   ==> 110
 
 
 // SERVO VARIABLES AND CONSTANTS
@@ -33,11 +37,11 @@ Adafruit_PWMServoDriver pca9685 = Adafruit_PWMServoDriver();  // only board 0x40
 
 
 // Default values for TrixBrix switches (in case servo angles are not transmitted)
-const int SERVO_MIN_ALLOWED = 50;   // minimum accepted servo angle from Rocrail. Anything below this value is treated as misconfiguration and is neglected and reset to SERVO_MIN.
-const int SERVO_MIN = 75;           // a good first guess for the minimum angle of TrixBrix servos is 70
-const int SERVO_START = 80;         // position after boot-up. For TrixBrix servos, this is more or less the middle position
-const int SERVO_MAX = 85;           // a good first guess for the maximum angle of TrixBrix servos is 90
-const int SERVO_MAX_ALLOWED = 120;  // maximum accepted servo angle from Rocrail. Anything above this value is treated as misconfiguration and is neglected and reset to SERVO_MAX.
+const int SERVO_MIN_ALLOWED = 30;   // minimum accepted servo angle from Rocrail. Anything below this value is treated as misconfiguration and is neglected and reset to SERVO_MIN.
+const int SERVO_MIN = 35;           // a good first guess for the minimum angle of TrixBrix servos is 70
+const int SERVO_START = 65;         // position after boot-up. For TrixBrix servos, this is more or less the middle position
+const int SERVO_MAX = 90;           // a good first guess for the maximum angle of TrixBrix servos is 90
+const int SERVO_MAX_ALLOWED = 100;  // maximum accepted servo angle from Rocrail. Anything above this value is treated as misconfiguration and is neglected and reset to SERVO_MAX.
 
 // Delay between two switch operations
 const int SWITCH_DELAY = 200;
@@ -62,8 +66,8 @@ int lastSensorContactMillis[NUM_SENSORS];
 
 
 void setup() {
-  Wire.begin();
-  PCF_01.begin();
+
+  
   
   // initialize PWM Servo Driver object (for PCA9685)
 #if USE_PCA9685
@@ -90,17 +94,7 @@ void setup() {
     }
   }
 
-  // initialize signal pins
-  for (int i = 0; i < NUM_SIGNALPORTS; i++) {
-    if (SIGNALPORT_PIN_TYPE[i] == 0) {
-      // signal connected directly to the controller
-      pinMode(SIGNALPORT_PIN[i], OUTPUT);
-    }
-    else if (SIGNALPORT_PIN_TYPE[i] == 0x40) {
-      // signal connected to PCA9685
-      // no action required
-    }
-  }
+  
 
   // initialize sensor pins
   for (int i = 0; i < NUM_SENSORS; i++) {
@@ -109,8 +103,28 @@ void setup() {
     sensorTriggerState[i] = (SENSOR_PIN[i] == D8) ? HIGH : LOW;
   }
 
+
   // load config from EEPROM, initialize Wifi, MQTT etc.
   setupMattzoController();
+
+  Wire.begin();
+
+  PCF_01.begin();
+  
+  if (PCF_01.isConnected())
+  {
+    mcLog("=>(1) connected");
+
+  }
+  PCF_02.begin();
+  
+  if (PCF_02.isConnected())
+  {
+    mcLog("=>(2) connected");
+
+  }
+
+
 }
 
 #if USE_PCA9685
@@ -347,7 +361,6 @@ void setLEDBySensorStates() {
   statusLEDState = false;
 }
 
-/*
 void monitorSensors() {
   for (int i = 0; i < NUM_SENSORS; i++) {
     int sensorValue = digitalRead(SENSOR_PIN[i]);
@@ -373,33 +386,6 @@ void monitorSensors() {
 
   setLEDBySensorStates();
 }
-*/
-
-void monitorSensors() {
-  for (int i = 0; i < NUM_SENSORS; i++) {
-    int sensorValue = PCF_01.read(IN[i]);
-
-    if (sensorValue == sensorTriggerState[i]) {
-      // Contact -> report contact immediately
-      if (!sensorState[i]) {
-        mcLog("Sensor " + String(i) + " triggered.");
-        sendSensorEvent2MQTT(i, true);
-        sensorState[i] = true;
-      }
-      lastSensorContactMillis[i] = millis();
-    } else {
-      // No contact for SENSOR_RELEASE_TICKS milliseconds -> report sensor has lost contact
-      if (sensorState[i] && (millis() > lastSensorContactMillis[i] + SENSOR_RELEASE_TICKS)) {
-        mcLog("Sensor " + String(i) + " released.");
-        sendSensorEvent2MQTT(i, false);
-        sensorState[i] = false;
-      }
-    }
-  }
-
-  setLEDBySensorStates();
-}
-
 
 // sets the servo arm to a desired angle
 void setServoAngle(int servoIndex, int servoAngle) {
@@ -456,25 +442,9 @@ void checkEnableServoSleepMode() {
 // switches a signal on or off
 void setSignalLED(int signalIndex, bool ledState) {
   mcLog("Setting signal LED " + String(signalIndex) + " to " + String(ledState));
-  if (SIGNALPORT_PIN_TYPE[signalIndex] == 0) {
-    digitalWrite(SIGNALPORT_PIN[signalIndex], ledState ? LOW : HIGH);
-  }
-#if USE_PCA9685
-  else if (SIGNALPORT_PIN_TYPE[signalIndex] == 0x40) {
-    if (ledState) {
-      // full bright
-      pca9685.setPWM(SIGNALPORT_PIN[signalIndex], 4096, 0);
-      // half bright (strongly dimmed)
-      // pca9685.setPWM(SIGNALPORT_PIN[signalIndex], 0, 2048);
-      // 3/4 bright (slightly dimmed)
-      // pca9685.setPWM(SIGNALPORT_PIN[signalIndex], 0, 3072);
-    }
-    else {
-      // off
-      pca9685.setPWM(SIGNALPORT_PIN[signalIndex], 0, 4096);
-    }
-  }
-#endif
+  
+    PCF_01.write(SIGNALPORT_PIN[signalIndex], ledState ? LOW : HIGH);
+  
 }
 
 void loop() {
