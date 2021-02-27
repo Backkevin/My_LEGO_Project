@@ -58,30 +58,13 @@ uint8_t PCA9685_OE_PIN = D0;
 // SWITCH WIRING CONFIGURATION
 
 // Number of switch ports
-const int NUM_SWITCHPORTS = 8;
+const int NUM_SWITCHPORTS = 16;
 
 // Digital output pins for switch servos
-uint8_t SWITCHPORT_PIN[NUM_SWITCHPORTS] = { 0, 1, 2, 3, 4, 5, 6, 7 };
-
-
-// ****************
-// PCF8574 settings
-// ****************
-
-const byte IN_1  = 0;
-const byte IN_2  = 1; 
-const byte IN_3  = 2; 
-const byte IN_4  = 3;
-const byte IN_5  = 4;
-const byte IN_6  = 5;
-const byte IN_7  = 6;
-const byte IN_8  = 7;
-
-uint8_t IN[NUM_SWITCHPORTS] = {IN_1, IN_2, IN_3, IN_4, IN_5, IN_6, IN_7, IN_8};
-
+uint8_t SWITCHPORT_PIN[NUM_SWITCHPORTS] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
 
 // Type of digital output pins for switch servos (0 = pins on the ESP-8266; 0x40 = ports of the PCA9685)
-uint8_t SWITCHPORT_PIN_TYPE[NUM_SWITCHPORTS] = { 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40 };
+uint8_t SWITCHPORT_PIN_TYPE[NUM_SWITCHPORTS] = { 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40 };
 
 
 // SIGNAL WIRING CONFIGURATION
@@ -90,7 +73,7 @@ uint8_t SWITCHPORT_PIN_TYPE[NUM_SWITCHPORTS] = { 0x40, 0x40, 0x40, 0x40, 0x40, 0
 const int NUM_SIGNALPORTS = 8;
 
 // Digital pins for signal LEDs
-uint8_t SIGNALPORT_PIN[NUM_SIGNALPORTS] = { 8, 9, 10, 11, 12, 13, 14, 15 };
+uint8_t SIGNALPORT_PIN[NUM_SIGNALPORTS] = { 0, 1, 2, 3, 4, 5, 6, 7 };
 
 // Type of digital output pins for signal LEDs (0 = pins on the ESP-8266; 0x40 = ports of the PCA9685)
 uint8_t SIGNALPORT_PIN_TYPE[NUM_SIGNALPORTS] = { 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40 };
@@ -109,7 +92,7 @@ uint8_t SENSOR_PIN[NUM_SENSORS] = {D3, D4, D5, D6, D7, D8};
 
 // Digital output pin to monitor controller operation (typically a LED)
 bool STATUS_LED_PIN_INSTALLED = true;  // set to false if no LED is installed
-uint8_t STATUS_LED_PIN = D0;
+uint8_t STATUS_LED_PIN = D8;
 
 
 // ****************
