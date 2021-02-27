@@ -23,20 +23,30 @@
 // Controller wiring specifics
 // ***************************
 
+// PCA9685 port expander used?
+#define USE_PCA9685_1 true
+#define USE_PCA9685_2 false
+
+// PCA9685 OE pin supported?
+bool PCA9685_OE_PIN_INSTALLED = true;  // set to true if OE pin is connected (false if not)
+uint8_t PCA9685_OE_PIN = D0;
+
+
+// SWITCH WIRING CONFIGURATION
+
 // Number of switch ports
-const int NUM_SWITCHPORTS = 8;  //1*PWM =16 2*PWM=32
+const int NUM_SWITCHPORTS = 16;
 
 // Digital output pins for switch servos
-uint8_t SWITCHPORT_PIN[NUM_SWITCHPORTS] = {D0, D1, D2, D3, D4, D5, D6, D7};
+uint8_t SWITCHPORT_PIN[NUM_SWITCHPORTS] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
 
-// Digital output PIN to monitor controller operation (typically a LED)
+
+// STATUS LED WIRING CONFIGURATION
+
+// Digital output pin to monitor controller operation (typically a LED)
 bool STATUS_LED_PIN_INSTALLED = true;  // set to false if no LED is installed
 uint8_t STATUS_LED_PIN = D8;
 
-
-// ****************
-// PWM settings
-// ****************
 
 // ****************
 // Network settings
@@ -50,4 +60,4 @@ uint8_t STATUS_LED_PIN = D8;
 // Syslog settings
 // ***************
 // Syslog application name
-const char* SYSLOG_APP_NAME = "MSWC";
+const char* SYSLOG_APP_NAME = "MSTC";
