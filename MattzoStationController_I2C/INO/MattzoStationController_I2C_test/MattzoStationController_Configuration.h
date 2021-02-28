@@ -28,10 +28,12 @@
 #define USE_PCA9685_2 false
 
 // PCF8574P port expander used?
-#define USE_PCF8574P_1 true
-#define USE_PCF8574P_2 false
-#define USE_PCF8574P_3 false
-#define USE_PCF8574P_4 false
+#define USE_PCF8574P_1 true       //OUTPUT Board 1 Train Signals
+#define USE_PCF8574P_2 true       //OUTPUT Board 1 Crossing Signals
+#define USE_PCF8574P_3 false      //OUTPUT Board 2 Train Signals
+#define USE_PCF8574P_4 false      //OUTPUT Board 2 Crossing Signals
+#define USE_PCF8574P_5 false      //INPUT Board 1 
+#define USE_PCF8574P_6 false      //INPUT Board 1
 
 
 // PCA9685 OE pin supported?
@@ -43,33 +45,20 @@ uint8_t PCA9685_OE_PIN = D0;
 
 // Number of switch ports
 const int NUM_SWITCHPORTS = 16;
-
-// Digital output pins for switch servos
 uint8_t SWITCHPORT_PIN[NUM_SWITCHPORTS] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
 
+// Number of signal ports for train
+const int NUM_SIGNALPORTS = 8;
+uint8_t OUT[NUM_SIGNALPORTS] = {0, 1, 2, 3, 4, 5, 6, 7};
 
-
-// Number of signal ports
-#if USE_PCF8574P_1
-  const int NUM_SIGNALPORTS = 8;
-  uint8_t OUT[NUM_SIGNALPORTS] = {0, 1, 2, 3, 4, 5, 6, 7};
-#endif
-#if USE_PCF8574P_2
-  const int NUM_SIGNALPORTS = 16;
-  uint8_t OUT[NUM_SIGNALPORTS] = {0, 1, 2, 3, 4, 5, 6, 7};
-#endif
-
+// Number of signal ports for crossing
+const int NUM_CROSSINGPORTS = 8;
+uint8_t OUT2[16] = {LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW};
+uint8_t OUT3[16] = {LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW};
 
 // Number of sensors connected 
-#if USE_PCF8574P_3
-  const int NUM_SENSORS = 8;
-  uint8_t IN[NUM_SENSORS] = {0, 1, 2, 3, 4, 5, 6, 7};
-#endif
-#if USE_PCF8574P_4
-  const int NUM_SENSORS = 16;
-  uint8_t IN[NUM_SENSORS] = {0, 1, 2, 3, 4, 5, 6, 7};
-#endif
-
+const int NUM_SENSORS = 16;
+uint8_t IN[NUM_SENSORS] = {0, 1, 2, 3, 4, 5, 6, 7};
 
 
 // STATUS LED WIRING CONFIGURATION
