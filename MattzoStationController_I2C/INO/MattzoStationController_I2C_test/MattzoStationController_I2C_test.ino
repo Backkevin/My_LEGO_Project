@@ -50,15 +50,19 @@ bool servoSleepMode = false;
 unsigned long servoSleepModeFrom_ms = 0;
 
 
-
+unsigned long previousMillis = 0;        // will store last time LED was updated
+const long interval = 1000;           // interval at which to blink (milliseconds)
 
 #include <PCF8574.h>                              //
 PCF8574 PCF_01(0x38);                             // set adr from PCF8574   ==> 000
 PCF8574 PCF_02(0x39);                             // set adr from PCF8574   ==> 100
 PCF8574 PCF_03(0x3A);                             // set adr from PCF8574   ==> 010
 PCF8574 PCF_04(0x3B);                             // set adr from PCF8574   ==> 110
+PCF8574 PCF_05(0x3C);                             // set adr from PCF8574   ==> 001
+PCF8574 PCF_06(0x3D);                             // set adr from PCF8574   ==> 101
 
-#if USE_PCF8574P_3 || USE_PCF8574P_4
+
+#if USE_PCF8574P_5 || USE_PCF8574P_6
 // Time in milliseconds until release event is reported after sensor has lost contact
 const int SENSOR_RELEASE_TICKS = 100;
 bool sensorState[NUM_SENSORS];
@@ -138,7 +142,7 @@ Wire.begin();
   }else{
     countinit = countinit+1;
   }
-#endif   
+#endif
 #if USE_PCF8574P_3
     PCF_03.begin();
     if (!PCF_03.begin())
@@ -162,11 +166,45 @@ Wire.begin();
     {
       mcLog("(4) could not initialize...");
     }else{
-      //mcLog("=>PCF8574 NR.4 is initialized");  
+      mcLog("=>PCF8574 NR.4 is initialized");  
     }
     if (!PCF_04.isConnected())
     {
       mcLog("=>(4) not connected");
+      while(1);
+    }else{
+      countinit = countinit+1;
+    }
+  
+#endif    
+#if USE_PCF8574P_5
+    PCF_05.begin();
+    if (!PCF_05.begin())
+    {
+      mcLog("(5) could not initialize...");
+    }else{
+      mcLog("=>PCF8574 NR.5 is initialized");  
+    }
+    if (!PCF_05.isConnected())
+    {
+      mcLog("=>(5) not connected");
+      while(1);
+    }else{
+      countinit = countinit+1;
+    }
+  
+#endif 
+#if USE_PCF8574P_6
+    PCF_06.begin();
+    if (!PCF_06.begin())
+    {
+      mcLog("(6) could not initialize...");
+    }else{
+      //mcLog("=>PCF8574 NR.6 is initialized");  
+    }
+    if (!PCF_06.isConnected())
+    {
+      mcLog("=>(6) not connected");
       while(1);
     }else{  
       countinit = countinit+1;
@@ -294,13 +332,18 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
     // servo angle will only be used to flip a standard or one side of a triple switch - not for double slip switches!
     int switchCommand;
     int servoAngle;
+    int blink;
     if (strcmp(rr_cmd, "straight") == 0) {
       switchCommand = 1;
       servoAngle = rr_param1;
+      blink = HIGH;
+      mcLog("Blink on");
     }
     else if (strcmp(rr_cmd, "turnout") == 0) {
       switchCommand = 0;
       servoAngle = rr_value1;
+      blink = LOW;
+      mcLog("Blink off");
     }
     else {
       mcLog("Switch command unknown - message disregarded.");
@@ -352,6 +395,9 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
         servoPort1 = 15;
         servoPort2 = 16;
       }
+
+        OUT3[rr_port1-1001] = blink;
+        
 
       mcLog("Turning double slip switch servos on port " + String(servoPort1) + " and " + String(servoPort2) + " to angle " + String(servoAngle));
       setServoAngle_1(servoPort1 - 1, servoAngle);
@@ -410,6 +456,9 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
         servoPort3 = 15;
         servoPort4 = 16;
       }
+
+      OUT3[rr_port1-1011] = blink;
+      
 
       mcLog("Turning double slip switch servos on port " + String(servoPort3) + " and " + String(servoPort4) + " to angle " + String(servoAngle));
       setServoAngle_2(servoPort3 - 1, servoAngle);
@@ -486,7 +535,7 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
 
 
 
-#if USE_PCF8574P_3 || USE_PCF8574P_4
+#if USE_PCF8574P_5 || USE_PCF8574P_6
 
 void sendSensorEvent2MQTT(int sensorPort, int sensorState) {
   String sensorRocId = MATTZO_CONTROLLER_TYPE + String(mattzoControllerId) + "-" + String(sensorPort + 1);  // e.g. "MattzoController12345-3"
@@ -527,10 +576,10 @@ void monitorSensors() {
     if(i <= 7)
     {
       b = i;
-      sensorValue = PCF_01.read(IN[b]);
+      sensorValue = PCF_05.read(IN[b]);
     }else if(i >= 8 && i <= 15){
       b = i - 8;
-      sensorValue = PCF_02.read(IN[b]);  
+      sensorValue = PCF_06.read(IN[b]);  
     }
 
     
@@ -631,14 +680,67 @@ void checkEnableServoSleepMode() {
 void setSignalLED(int signalIndex, bool ledState) {
   mcLog("Setting signal LED " + String(signalIndex) + " to " + String(ledState));
   
-    PCF_01.write(OUT[signalIndex], ledState ? LOW : HIGH);
-  
+  if(signalIndex <= 7)
+    {
+      signalIndex = signalIndex - 0;
+      PCF_01.write(OUT[signalIndex], ledState ? LOW : HIGH);
+    }else if(signalIndex >= 8 && signalIndex <= 15){
+      signalIndex = signalIndex - 8;
+      PCF_03.write(OUT[signalIndex], ledState ? LOW : HIGH); 
+    }
 }
+
+
+void corossingled() {
+  for (int crossingled = 0; crossingled < NUM_CROSSINGPORTS; ) {
+    if(OUT3[crossingled] == HIGH){  
+      unsigned long currentMillis = millis();
+
+      if (currentMillis - previousMillis >= interval) {
+        // save the last time you blinked the LED
+        previousMillis = currentMillis;
+        // if the LED is off turn it on and vice-versa:
+        if (OUT2[crossingled] == LOW) {
+          OUT2[crossingled] = HIGH;
+          OUT2[crossingled+1] = LOW;
+        } else {
+          OUT2[crossingled] = LOW;
+          OUT2[crossingled+1] = HIGH;
+        }
+
+        // set the LED with the ledState of the variable:
+        //digitalWrite(ledPin, OUT2[crossingled]);
+        if(crossingled <= 7){
+          crossingled = crossingled - 0;
+          PCF_02.write(OUT[crossingled], OUT2[crossingled] ? LOW : HIGH); 
+          PCF_02.write(OUT[crossingled+1], OUT2[crossingled+1] ? LOW : HIGH);         
+        }else if(crossingled >= 8 && crossingled <= 15){
+          crossingled = crossingled - 8;
+          PCF_04.write(OUT[crossingled], OUT2[crossingled] ? LOW : HIGH); 
+          PCF_04.write(OUT[crossingled+1], OUT2[crossingled+1] ? LOW : HIGH); 
+        }
+      }
+    }else{
+        if(crossingled <= 7){
+          crossingled = crossingled - 0;
+          PCF_02.write(OUT[crossingled], LOW ? LOW : HIGH); 
+          PCF_02.write(OUT[crossingled+1], LOW ? LOW : HIGH);         
+        }else if(crossingled >= 8 && crossingled <= 15){
+          crossingled = crossingled - 8;
+          PCF_04.write(OUT[crossingled], LOW ? LOW : HIGH); 
+          PCF_04.write(OUT[crossingled+1], LOW ? LOW : HIGH);
+        }
+    }
+    crossingled=crossingled+2;
+  }    
+}
+
 
 void loop() {
   loopMattzoController();
   checkEnableServoSleepMode();
-#if USE_PCF8574P_3 || USE_PCF8574P_4
+  corossingled();
+#if USE_PCF8574P_5 || USE_PCF8574P_6
   monitorSensors();
 #endif 
 }
