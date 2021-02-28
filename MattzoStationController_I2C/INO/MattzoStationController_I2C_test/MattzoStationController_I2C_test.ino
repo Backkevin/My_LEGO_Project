@@ -38,12 +38,18 @@ const int SERVO_START = 65;         // position after boot-up. For TrixBrix serv
 const int SERVO_MAX = 90;           // a good first guess for the maximum angle of TrixBrix servos is 90
 const int SERVO_MAX_ALLOWED = 100;  // maximum accepted servo angle from Rocrail. Anything above this value is treated as misconfiguration and is neglected and reset to SERVO_MAX.
 
+
+const int SERVO_MIN_2 = 90;           // a good first guess for the minimum angle of TrixBrix servos is 70
+const int SERVO_MAX_2 = 145;           // a good first guess for the maximum angle of TrixBrix servos is 90
+
+
+
 // Delay between two switch operations
 const int SWITCH_DELAY = 200;
 
 // Time after servo operation until servo power is switched off (in milliseconds; 3000 = 3 sec.)
 // Presently only supported when using PCA9685
-const int SERVOSLEEPMODEAFTER_MS = 3000;
+const int SERVOSLEEPMODEAFTER_MS = 500;
 
 // time when servos will go to sleep mode
 bool servoSleepMode = false;
@@ -51,7 +57,7 @@ unsigned long servoSleepModeFrom_ms = 0;
 
 
 unsigned long previousMillis = 0;        // will store last time LED was updated
-const long interval = 1000;           // interval at which to blink (milliseconds)
+const long interval = 500;           // interval at which to blink (milliseconds)
 
 #include <PCF8574.h>                              //
 PCF8574 PCF_01(0x38);                             // set adr from PCF8574   ==> 000
@@ -285,7 +291,7 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
       return;
     }
     mcLog("port1: " + String(rr_port1));
-    if ((rr_port1 < 1 || rr_port1 > 32) && (rr_port1 < 1001 || rr_port1 > 1018)) {
+    if ((rr_port1 < 1 || rr_port1 > 32) && (rr_port1 < 1001 || rr_port1 > 2018)) {
       mcLog("Message disgarded, this controller does not have such a port.");
       return;
     }
@@ -332,16 +338,19 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
     // servo angle will only be used to flip a standard or one side of a triple switch - not for double slip switches!
     int switchCommand;
     int servoAngle;
+    int servoAngle_2;
     int blink;
     if (strcmp(rr_cmd, "straight") == 0) {
       switchCommand = 1;
       servoAngle = rr_param1;
+      servoAngle_2 = rr_param1;
       blink = HIGH;
       mcLog("Blink on");
     }
     else if (strcmp(rr_cmd, "turnout") == 0) {
       switchCommand = 0;
       servoAngle = rr_value1;
+      servoAngle_2 = rr_value1+107;
       blink = LOW;
       mcLog("Blink off");
     }
@@ -411,7 +420,7 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
 
 
     
-// Check if port is between 2001 and 2004 -> special rules for trixbrix double slip switches apply!
+// Check if port is between 1001 and 1004 -> special rules for trixbrix double slip switches apply!
     if (rr_port1 >= 1011 && rr_port1 <= 1018) {
       int servoPort3;
       int servoPort4;
@@ -470,6 +479,114 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
     }
 
     
+
+
+
+
+
+
+      if (rr_port1 >= 2001 && rr_port1 <= 2004) {
+      int servoPort1;
+      int servoPort2;
+      int servoPort3;
+      int servoPort4;
+
+      // port 2001 -> double slip switch 1 / side A / ports 1 2 3 4
+      if (rr_port1 == 2001) {
+        servoPort1 = 1;
+        servoPort2 = 2;  
+        servoPort3 = 3;
+        servoPort4 = 4;
+      }
+      // port 2002 -> double slip switch 2 / side A / ports 5 6 7 8
+      else if (rr_port1 == 2002) {
+        servoPort1 = 5;
+        servoPort2 = 6;
+        servoPort3 = 7;
+        servoPort4 = 8;
+      }
+      // port 2003 -> double slip switch 3 / side A / ports 9 10 11 12
+      else if (rr_port1 == 2003) {
+        servoPort1 = 9;
+        servoPort2 = 10;
+        servoPort3 = 11;
+        servoPort4 = 12;
+      }
+      // port 2004 -> double slip switch 4 / side A / ports 13 14 15 16
+      else if (rr_port1 == 2004) {
+        servoPort1 = 13;
+        servoPort2 = 14;
+        servoPort3 = 15;
+        servoPort4 = 16;
+      }
+
+        OUT3[rr_port1-2001] = blink;
+        
+
+      mcLog("Turning double slip switch servos on port " + String(servoPort1) + " and " + String(servoPort2) + " to angle " + String(servoAngle));
+      setServoAngle_1(servoPort1 - 1, servoAngle);
+      setServoAngle_1(servoPort2 - 1, servoAngle);
+      mcLog("Turning double slip switch servos on port " + String(servoPort3) + " and " + String(servoPort4) + " to angle " + String(servoAngle_2));
+      setServoAngle_1(servoPort3 - 1, servoAngle_2);
+      setServoAngle_1(servoPort4 - 1, servoAngle_2);
+    }
+    else if(rr_port1 >= 1 && rr_port1 <= 16) {
+      mcLog("Turning servo on port " + String(rr_port1) + " to angle " + String(servoAngle));
+      setServoAngle_1(rr_port1 - 1, servoAngle);
+    }
+
+if (rr_port1 >= 2005 && rr_port1 <= 2008) {
+      int servoPort1;
+      int servoPort2;
+      int servoPort3;
+      int servoPort4;
+
+      // port 2005 -> double slip switch 1 / side A / ports 1 2 3 4
+      if (rr_port1 == 2005) {
+        servoPort1 = 1;
+        servoPort2 = 2;  
+        servoPort3 = 3;
+        servoPort4 = 4;
+      }
+      // port 2006 -> double slip switch 2 / side A / ports 5 6 7 8
+      else if (rr_port1 == 2006) {
+        servoPort1 = 5;
+        servoPort2 = 6;
+        servoPort3 = 7;
+        servoPort4 = 8;
+      }
+      // port 2007 -> double slip switch 3 / side A / ports 9 10 11 12
+      else if (rr_port1 == 2007) {
+        servoPort1 = 9;
+        servoPort2 = 10;
+        servoPort3 = 11;
+        servoPort4 = 12;
+      }
+      // port 1008 -> double slip switch 4 / side A / ports 13 14 15 16
+      else if (rr_port1 == 2008) {
+        servoPort1 = 13;
+        servoPort2 = 14;
+        servoPort3 = 15;
+        servoPort4 = 16;
+      }
+
+        OUT3[rr_port1-2005] = blink;
+        
+
+      mcLog("Turning double slip switch servos on port " + String(servoPort1) + " and " + String(servoPort2) + " to angle " + String(servoAngle));
+      setServoAngle_2(servoPort1 - 1, servoAngle);
+      setServoAngle_2(servoPort2 - 1, servoAngle);
+      mcLog("Turning double slip switch servos on port " + String(servoPort3) + " and " + String(servoPort4) + " to angle " + String(servoAngle_2));
+      setServoAngle_2(servoPort3 - 1, servoAngle_2);
+      setServoAngle_2(servoPort4 - 1, servoAngle_2);
+    }
+    else if(rr_port1 >= 17 && rr_port1 <= 32) {
+      mcLog("Turning servo on port " + String(rr_port1) + " to angle " + String(servoAngle));
+      setServoAngle_2(rr_port1 - 1, servoAngle);
+    }
+
+
+
 
     
     return;
@@ -615,7 +732,7 @@ void monitorSensors() {
 
 // sets the servo arm to a desired angle
 void setServoAngle_1(int servoIndex, int servoAngle) {
-  if (servoIndex >= 0 && servoIndex < NUM_SWITCHPORTS) {
+  if (servoIndex >= 0 && servoIndex < NUM_SWITCHPORTS  || servoAngle >= SERVO_MIN && servoAngle <= SERVO_MAX) {
 #if USE_PCA9685_1
     setServoSleepMode(false);
     pca9685_1.setPWM(SWITCHPORT_PIN[servoIndex], 0, mapAngle2PulseLength(servoAngle));   
@@ -624,6 +741,7 @@ void setServoAngle_1(int servoIndex, int servoAngle) {
   }
   else {
     // this should not happen
+    mcLog("WARNING_2: servo Angle " + String(servoAngle) + " out of range!");
     mcLog("WARNING_1: servo index " + String(servoIndex) + " out of range!");
   }
 }
@@ -631,7 +749,8 @@ void setServoAngle_1(int servoIndex, int servoAngle) {
 
 // sets the servo arm to a desired angle
 void setServoAngle_2(int servoIndex, int servoAngle) {
-  if (servoIndex >= 0 && servoIndex < NUM_SWITCHPORTS) {
+  //if (servoIndex >= 0 && servoIndex < NUM_SWITCHPORTS) {
+  if (servoIndex >= 0 && servoIndex < NUM_SWITCHPORTS || servoAngle >= SERVO_MIN_2 && servoAngle <= SERVO_MAX_2) {
 #if USE_PCA9685_2
     setServoSleepMode(false);
     pca9685_2.setPWM(SWITCHPORT_PIN[servoIndex], 0, mapAngle2PulseLength(servoAngle));   
@@ -640,7 +759,8 @@ void setServoAngle_2(int servoIndex, int servoAngle) {
   }
   else {
     // this should not happen
-    mcLog("WARNING_2: servo index " + String(servoIndex) + " out of range!");
+    mcLog("WARNING_2: servo Angle " + String(servoAngle) + " out of range!");
+    mcLog("WARNING_1: servo index " + String(servoIndex) + " out of range!");
   }
 }
 
