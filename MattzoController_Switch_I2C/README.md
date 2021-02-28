@@ -5,7 +5,7 @@
 		* Partlist not OK
 	+ Work in progress !
 <img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Switch_I2C/IMAGE/CPU2.jpg">
-<img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Switch_I2C/IMAGE/Default.jpg">
+<img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Switch_I2C/IMAGE/PWM1.jpg">
 
 ### Partslist Switch
                     
