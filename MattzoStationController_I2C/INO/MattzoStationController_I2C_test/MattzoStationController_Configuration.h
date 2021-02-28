@@ -36,6 +36,7 @@
 #define USE_PCF8574P_6 false      //INPUT Board 1
 
 
+
 // PCA9685 OE pin supported?
 bool PCA9685_OE_PIN_INSTALLED = true;  // set to true if OE pin is connected (false if not)
 uint8_t PCA9685_OE_PIN = D0;
@@ -53,8 +54,8 @@ uint8_t OUT[NUM_SIGNALPORTS] = {0, 1, 2, 3, 4, 5, 6, 7};
 
 // Number of signal ports for crossing
 const int NUM_CROSSINGPORTS = 8;
-uint8_t OUT2[16] = {LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW};
-uint8_t OUT3[16] = {LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW};
+uint8_t OUT2[16] = {LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW};// led state
+uint8_t OUT3[16] = {LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW, LOW};// blink state
 
 // Number of sensors connected 
 const int NUM_SENSORS = 16;
