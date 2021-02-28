@@ -9,7 +9,7 @@
 #define MATTZO_CONTROLLER_TYPE "MattzoStationController"
 #include <ESP8266WiFi.h>                          // WiFi library for ESP-8266
 #include <Servo.h>                                // Servo library
-#include "MattzoSwitchController_Configuration.h" // this file should be placed in the same folder
+#include "MattzoStationController_Configuration.h" // this file should be placed in the same folder
 #include "MattzoController_Library.h"             // this file needs to be placed in the Arduino library folder
 
 
@@ -31,7 +31,6 @@ Adafruit_PWMServoDriver pca9685_1 = Adafruit_PWMServoDriver(0x40);  // only boar
 Adafruit_PWMServoDriver pca9685_2 = Adafruit_PWMServoDriver(0x41);  // only board 0x41 is supported in this version of the firmware A10=1,A1=0,A2=0,A3=0,A4=0,A5=0
 #endif
 
-
 // Default values for TrixBrix switches (in case servo angles are not transmitted)
 const int SERVO_MIN_ALLOWED = 30;   // minimum accepted servo angle from Rocrail. Anything below this value is treated as misconfiguration and is neglected and reset to SERVO_MIN.
 const int SERVO_MIN = 35;           // a good first guess for the minimum angle of TrixBrix servos is 70
@@ -50,6 +49,22 @@ const int SERVOSLEEPMODEAFTER_MS = 3000;
 bool servoSleepMode = false;
 unsigned long servoSleepModeFrom_ms = 0;
 
+
+
+
+#include <PCF8574.h>                              //
+PCF8574 PCF_01(0x38);                             // set adr from PCF8574   ==> 000
+PCF8574 PCF_02(0x39);                             // set adr from PCF8574   ==> 100
+PCF8574 PCF_03(0x3A);                             // set adr from PCF8574   ==> 010
+PCF8574 PCF_04(0x3B);                             // set adr from PCF8574   ==> 110
+
+#if USE_PCF8574P_3 || USE_PCF8574P_4
+// Time in milliseconds until release event is reported after sensor has lost contact
+const int SENSOR_RELEASE_TICKS = 100;
+bool sensorState[NUM_SENSORS];
+int sensorTriggerState[NUM_SENSORS];
+int lastSensorContactMillis[NUM_SENSORS];
+#endif
 
 
 
@@ -81,9 +96,87 @@ void setup() {
   }
 #endif
 
+Wire.begin();
+  
+  delay(500);
+  
   // load config from EEPROM, initialize Wifi, MQTT etc.
   setupMattzoController();
 
+  delay(500);
+
+  int countinit = 0;
+
+#if USE_PCF8574P_1
+  PCF_01.begin();
+  if (!PCF_01.begin())
+  {
+    mcLog("1 could not initialize...");
+  }else{
+    mcLog("=>PCF8574 NR.1 is initialized");  
+  }
+  if (!PCF_01.isConnected())
+  {
+    mcLog("=>(1) not connected");
+    while(1);
+  }else{
+    countinit = countinit+1;
+  }
+#endif  
+#if USE_PCF8574P_2  
+  PCF_02.begin();
+  if (!PCF_02.begin())
+  {
+    mcLog("(2) could not initialize...");
+  }else{
+    mcLog("=>PCF8574 NR.2 is initialized");  
+  }
+  if (!PCF_02.isConnected())
+  {
+    mcLog("=>(2) not connected");
+    while(1);
+  }else{
+    countinit = countinit+1;
+  }
+#endif   
+#if USE_PCF8574P_3
+    PCF_03.begin();
+    if (!PCF_03.begin())
+    {
+      mcLog("(3) could not initialize...");
+    }else{
+      mcLog("=>PCF8574 NR.3 is initialized");  
+    }
+    if (!PCF_03.isConnected())
+    {
+      mcLog("=>(3) not connected");
+      while(1);
+    }else{
+      countinit = countinit+1;
+    }
+  
+#endif 
+#if USE_PCF8574P_4
+    PCF_04.begin();
+    if (!PCF_04.begin())
+    {
+      mcLog("(4) could not initialize...");
+    }else{
+      //mcLog("=>PCF8574 NR.4 is initialized");  
+    }
+    if (!PCF_04.isConnected())
+    {
+      mcLog("=>(4) not connected");
+      while(1);
+    }else{  
+      countinit = countinit+1;
+    }
+  
+#endif 
+
+mcLog("=>Total "); 
+mcLog(String(countinit)); 
+mcLog(" PCF8574 are connected");   
   
 }
 
@@ -106,6 +199,11 @@ void setupPCA9685_2() {
   delay(10);
 }
 #endif
+
+
+
+
+
 
 void mqttCallback(char* topic, byte* payload, unsigned int length) {
   char msg[length + 1];
@@ -364,13 +462,104 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
     }
     mcLog("cmd: " + String(rr_cmd));
 
-    
+    // set signal LED for the port on/off
+    if (strcmp(rr_cmd, "on") == 0) {
+      setSignalLED(rr_port - 1, true);
+    }
+    else if (strcmp(rr_cmd, "off") == 0) {
+      setSignalLED(rr_port - 1, false);
+    }
+    else {
+      mcLog("Signal port command unknown - message disregarded.");
+    }
     return;
     // end of signal handling
   }
 
   mcLog("No <sw> or <co> node found. Message disregarded.");
 }
+
+
+
+
+
+
+
+
+#if USE_PCF8574P_3 || USE_PCF8574P_4
+
+void sendSensorEvent2MQTT(int sensorPort, int sensorState) {
+  String sensorRocId = MATTZO_CONTROLLER_TYPE + String(mattzoControllerId) + "-" + String(sensorPort + 1);  // e.g. "MattzoController12345-3"
+  String stateString = sensorState ? "true" : "false";
+
+  // compile mqtt message. Parameters:
+  //   id: Combination of sensor name and port (e.g. MattzoController12345-3). The reported port (the "logic" port) is 1 count higher than the internal port number in the sensor, e.g. port 2 in the sensor equals 3 in Rocrail)
+  //   bus: controller number
+  //   address: port number (internal port number plus 1)
+  // both id or bus/address can be used in Rocrail. If id is used, it superseeds the combination of bus and address
+  String mqttMessage = "<fb id=\"" + sensorRocId + "\" bus=\"" + String(mattzoControllerId) + "\" addr=\"" + String(sensorPort + 1) + "\" state=\"" + stateString + "\"/>";
+  mcLog("Sending MQTT message: " + mqttMessage);
+  char mqttMessage_char[255];   // message is usually 61 chars, so 255 chars should be enough
+  mqttMessage.toCharArray(mqttMessage_char, mqttMessage.length() + 1);
+  mqttClient.publish("rocrail/service/client", mqttMessage_char);
+}
+
+// Switches LED on if one or more sensors has contact
+// Switches LED off if no sensor has contact
+void setLEDBySensorStates() {
+  bool ledOnOff = false;
+  for (int i = 0; i < NUM_SENSORS; i++) {
+    if (sensorState[i]) {
+      statusLEDState = true;
+      return;
+    }
+  }
+  statusLEDState = false;
+}
+
+
+void monitorSensors() {
+  for (int i = 0; i < NUM_SENSORS; i++) {
+    //int sensorValue = PCF_03.read(SENSOR_PIN[i]);
+    int b;
+    int sensorValue;
+    
+    if(i <= 7)
+    {
+      b = i;
+      sensorValue = PCF_01.read(IN[b]);
+    }else if(i >= 8 && i <= 15){
+      b = i - 8;
+      sensorValue = PCF_02.read(IN[b]);  
+    }
+
+    
+    if (sensorValue == sensorTriggerState[i]) {
+      // Contact -> report contact immediately
+      if (!sensorState[i]) {
+        mcLog("Sensor " + String(i) + " triggered.");
+        sendSensorEvent2MQTT(i, true);
+        sensorState[i] = true;
+      }
+      lastSensorContactMillis[i] = millis();
+    }
+    else {
+      // No contact for SENSOR_RELEASE_TICKS milliseconds -> report sensor has lost contact
+      if (sensorState[i] && (millis() > lastSensorContactMillis[i] + SENSOR_RELEASE_TICKS)) {
+        mcLog("Sensor " + String(i) + " released.");
+        sendSensorEvent2MQTT(i, false);
+        sensorState[i] = false;
+      }
+    }
+  }
+
+  setLEDBySensorStates();
+}
+#endif 
+
+
+
+
 
 
 
@@ -438,10 +627,18 @@ void checkEnableServoSleepMode() {
   }
 }
 
-
+// switches a signal on or off
+void setSignalLED(int signalIndex, bool ledState) {
+  mcLog("Setting signal LED " + String(signalIndex) + " to " + String(ledState));
+  
+    PCF_01.write(OUT[signalIndex], ledState ? LOW : HIGH);
+  
+}
 
 void loop() {
   loopMattzoController();
   checkEnableServoSleepMode();
-
+#if USE_PCF8574P_3 || USE_PCF8574P_4
+  monitorSensors();
+#endif 
 }
