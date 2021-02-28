@@ -52,7 +52,7 @@
 + [MattzoController_Switch_I2C](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Switch_I2C)
 
 	+ V1.0
-		* Work 0%
+		* Work 75%
 		* Partlist KO
 		* [INO FILE](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Switch_I2C/INO/MattzoController_Switch_I2C)
 		* [GERBER FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Switch_I2C/GERBER%20FILES)
@@ -75,7 +75,7 @@
 + [MattzoStationController_I2C](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoStationController_I2C)
 
 	+ V1.0
-		* Work 0%
+		* Work 75%
 		* Partlist KO
 		* [INO FILE](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoStationController_I2C/INO/MattzoStationController_I2C)
 		* [GERBER FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoStationController_I2C/GERBER%20FILES)
