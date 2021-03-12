@@ -2,8 +2,7 @@
 
  My Lego boards with PCF8574 ,MC23017 ,PCA9685
  
- >+ BUS PINOUT
- 
+ BUS PINOUT
 + PIN 1 ---> D0
 + PIN 2 ---> SCL (D1)
 + PIN 3 ---> SDA (D2)
