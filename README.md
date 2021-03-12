@@ -22,8 +22,9 @@
 + PIN 16 --> GND
 
 PCF8574 adresse
-
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/PCF8574%20address%20map.png)
+>MCP23017 adresse
+>![]()
 
 -----------------------------------------------------------------
 
