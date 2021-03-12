@@ -10100,44 +10100,35 @@ Version history:&lt;br&gt;
 </deviceset>
 </devicesets>
 </library>
-<library name="resistor-net" urn="urn:adsk.eagle:library:343">
+<library name="resistor-net_edit">
 <description>&lt;b&gt;Generic Resistor Networks&lt;/b&gt;&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
 <packages>
-<package name="RN-5" urn="urn:adsk.eagle:footprint:24948/1" library_version="2">
+<package name="RN-3">
 <description>&lt;b&gt;RESISTOR NETWORK&lt;/b&gt;</description>
-<wire x1="6.35" y1="-1.27" x2="6.35" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="3.81" y1="-1.27" x2="3.81" y2="1.27" width="0.1524" layer="21"/>
 <wire x1="-6.35" y1="1.27" x2="-6.35" y2="-1.27" width="0.1524" layer="21"/>
 <wire x1="-6.35" y1="-1.27" x2="-5.715" y2="-0.635" width="0.1524" layer="21"/>
 <wire x1="-6.35" y1="1.27" x2="-5.715" y2="0.635" width="0.1524" layer="21"/>
 <wire x1="-3.81" y1="1.27" x2="-4.445" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="6.35" y1="1.27" x2="-3.81" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="3.81" y1="1.27" x2="-3.81" y2="1.27" width="0.1524" layer="21"/>
 <wire x1="-3.81" y1="-1.27" x2="-4.445" y2="-0.635" width="0.1524" layer="21"/>
 <wire x1="-6.35" y1="-1.27" x2="-3.81" y2="-1.27" width="0.1524" layer="21"/>
 <wire x1="-3.81" y1="1.27" x2="-3.81" y2="-1.27" width="0.1524" layer="21"/>
 <wire x1="-3.81" y1="1.27" x2="-6.35" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="-3.81" y1="-1.27" x2="6.35" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-3.81" y1="-1.27" x2="3.81" y2="-1.27" width="0.1524" layer="21"/>
 <wire x1="-5.6896" y1="0.6096" x2="-4.4704" y2="-0.6096" width="0.1524" layer="51"/>
 <wire x1="-5.6896" y1="-0.6096" x2="-4.4704" y2="0.6096" width="0.1524" layer="51"/>
 <pad name="1" x="-5.08" y="0" drill="0.8128" shape="long" rot="R90"/>
 <pad name="2" x="-2.54" y="0" drill="0.8128" shape="long" rot="R90"/>
 <pad name="3" x="0" y="0" drill="0.8128" shape="long" rot="R90"/>
 <pad name="4" x="2.54" y="0" drill="0.8128" shape="long" rot="R90"/>
-<pad name="5" x="5.08" y="0" drill="0.8128" shape="long" rot="R90"/>
 <text x="-3.81" y="-2.921" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <text x="-3.81" y="1.651" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 </package>
 </packages>
-<packages3d>
-<package3d name="RN-5" urn="urn:adsk.eagle:package:24976/1" type="box" library_version="2">
-<description>RESISTOR NETWORK</description>
-<packageinstances>
-<packageinstance name="RN-5"/>
-</packageinstances>
-</package3d>
-</packages3d>
 <symbols>
-<symbol name="RN04" urn="urn:adsk.eagle:symbol:24947/1" library_version="2">
+<symbol name="RN03">
 <wire x1="-2.54" y1="1.27" x2="-2.54" y2="-1.27" width="0.254" layer="94"/>
 <wire x1="-2.54" y1="-1.27" x2="2.54" y2="-1.27" width="0.254" layer="94"/>
 <wire x1="2.54" y1="-1.27" x2="2.54" y2="1.27" width="0.254" layer="94"/>
@@ -10148,27 +10139,22 @@ Version history:&lt;br&gt;
 <pin name="2" x="5.08" y="0" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="3" x="10.16" y="0" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="4" x="15.24" y="0" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="5" x="20.32" y="0" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="RN04" urn="urn:adsk.eagle:component:24990/2" prefix="RN" uservalue="yes" library_version="2">
+<deviceset name="RN03" prefix="RN" uservalue="yes">
 <description>&lt;b&gt;RESISTOR NETWORK&lt;/b&gt;</description>
 <gates>
-<gate name="1" symbol="RN04" x="5.08" y="0"/>
+<gate name="G$1" symbol="RN03" x="5.08" y="0"/>
 </gates>
 <devices>
-<device name="" package="RN-5">
+<device name="" package="RN-3">
 <connects>
-<connect gate="1" pin="1" pad="1"/>
-<connect gate="1" pin="2" pad="2"/>
-<connect gate="1" pin="3" pad="3"/>
-<connect gate="1" pin="4" pad="4"/>
-<connect gate="1" pin="5" pad="5"/>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
 </connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:24976/1"/>
-</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="MF" value="" constant="no"/>
@@ -10248,8 +10234,8 @@ Version history:&lt;br&gt;
 <part name="R32" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-EU_" device="0309/10" package3d_urn="urn:adsk.eagle:package:23567/1" value="10K"/>
 <part name="SW1" library="special" library_urn="urn:adsk.eagle:library:367" deviceset="SW_DIP-3" device="" package3d_urn="urn:adsk.eagle:package:26663/2"/>
 <part name="SW2" library="special" library_urn="urn:adsk.eagle:library:367" deviceset="SW_DIP-3" device="" package3d_urn="urn:adsk.eagle:package:26663/2"/>
-<part name="RN1" library="resistor-net" library_urn="urn:adsk.eagle:library:343" deviceset="RN04" device="" package3d_urn="urn:adsk.eagle:package:24976/1"/>
-<part name="RN2" library="resistor-net" library_urn="urn:adsk.eagle:library:343" deviceset="RN04" device="" package3d_urn="urn:adsk.eagle:package:24976/1"/>
+<part name="RN1" library="resistor-net_edit" deviceset="RN03" device=""/>
+<part name="RN2" library="resistor-net_edit" deviceset="RN03" device=""/>
 <part name="IN_1" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="3MM" package3d_urn="urn:adsk.eagle:package:15797/1"/>
 <part name="IN_2" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="3MM" package3d_urn="urn:adsk.eagle:package:15797/1"/>
 <part name="IN_3" library="led" library_urn="urn:adsk.eagle:library:259" deviceset="LED" device="3MM" package3d_urn="urn:adsk.eagle:package:15797/1"/>
@@ -10537,11 +10523,11 @@ Version history:&lt;br&gt;
 <attribute name="NAME" x="68.58" y="32.385" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="68.58" y="45.72" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="RN1" gate="1" x="68.58" y="66.04" smashed="yes">
+<instance part="RN1" gate="G$1" x="68.58" y="66.04" smashed="yes">
 <attribute name="NAME" x="66.04" y="68.58" size="1.778" layer="95"/>
 <attribute name="VALUE" x="66.04" y="61.722" size="1.778" layer="96"/>
 </instance>
-<instance part="RN2" gate="1" x="68.58" y="-35.56" smashed="yes">
+<instance part="RN2" gate="G$1" x="68.58" y="-35.56" smashed="yes">
 <attribute name="NAME" x="66.04" y="-33.02" size="1.778" layer="95"/>
 <attribute name="VALUE" x="66.04" y="-39.878" size="1.778" layer="96"/>
 </instance>
@@ -10879,10 +10865,10 @@ Version history:&lt;br&gt;
 <junction x="116.84" y="58.42"/>
 <wire x1="116.84" y1="73.66" x2="116.84" y2="58.42" width="0.1524" layer="91"/>
 <junction x="116.84" y="2.54"/>
-<pinref part="RN1" gate="1" pin="1"/>
+<pinref part="RN1" gate="G$1" pin="1"/>
 <wire x1="63.5" y1="66.04" x2="63.5" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="63.5" y1="73.66" x2="116.84" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="RN2" gate="1" pin="1"/>
+<pinref part="RN2" gate="G$1" pin="1"/>
 <wire x1="63.5" y1="-35.56" x2="63.5" y2="-27.94" width="0.1524" layer="91"/>
 <wire x1="63.5" y1="-27.94" x2="116.84" y2="-27.94" width="0.1524" layer="91"/>
 </segment>
@@ -11311,7 +11297,7 @@ Version history:&lt;br&gt;
 <pinref part="SW1" gate="A" pin="4"/>
 <pinref part="U$1" gate="IC$1" pin="A2"/>
 <wire x1="71.12" y1="-66.04" x2="83.82" y2="-66.04" width="0.1524" layer="91"/>
-<pinref part="RN2" gate="1" pin="4"/>
+<pinref part="RN2" gate="G$1" pin="4"/>
 <wire x1="83.82" y1="-66.04" x2="91.44" y2="-66.04" width="0.1524" layer="91"/>
 <wire x1="83.82" y1="-35.56" x2="83.82" y2="-66.04" width="0.1524" layer="91"/>
 <junction x="83.82" y="-66.04"/>
@@ -11322,7 +11308,7 @@ Version history:&lt;br&gt;
 <pinref part="SW1" gate="A" pin="5"/>
 <pinref part="U$1" gate="IC$1" pin="A1"/>
 <wire x1="71.12" y1="-63.5" x2="78.74" y2="-63.5" width="0.1524" layer="91"/>
-<pinref part="RN2" gate="1" pin="3"/>
+<pinref part="RN2" gate="G$1" pin="3"/>
 <wire x1="78.74" y1="-63.5" x2="91.44" y2="-63.5" width="0.1524" layer="91"/>
 <wire x1="78.74" y1="-35.56" x2="78.74" y2="-63.5" width="0.1524" layer="91"/>
 <junction x="78.74" y="-63.5"/>
@@ -11333,7 +11319,7 @@ Version history:&lt;br&gt;
 <pinref part="U$1" gate="IC$1" pin="A0"/>
 <pinref part="SW1" gate="A" pin="6"/>
 <wire x1="91.44" y1="-60.96" x2="73.66" y2="-60.96" width="0.1524" layer="91"/>
-<pinref part="RN2" gate="1" pin="2"/>
+<pinref part="RN2" gate="G$1" pin="2"/>
 <wire x1="73.66" y1="-60.96" x2="71.12" y2="-60.96" width="0.1524" layer="91"/>
 <wire x1="73.66" y1="-35.56" x2="73.66" y2="-60.96" width="0.1524" layer="91"/>
 <junction x="73.66" y="-60.96"/>
@@ -11344,7 +11330,7 @@ Version history:&lt;br&gt;
 <pinref part="SW2" gate="A" pin="6"/>
 <pinref part="U$4" gate="IC$1" pin="A0"/>
 <wire x1="71.12" y1="40.64" x2="73.66" y2="40.64" width="0.1524" layer="91"/>
-<pinref part="RN1" gate="1" pin="2"/>
+<pinref part="RN1" gate="G$1" pin="2"/>
 <wire x1="73.66" y1="40.64" x2="91.44" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="73.66" y1="66.04" x2="73.66" y2="40.64" width="0.1524" layer="91"/>
 <junction x="73.66" y="40.64"/>
@@ -11355,7 +11341,7 @@ Version history:&lt;br&gt;
 <pinref part="SW2" gate="A" pin="5"/>
 <pinref part="U$4" gate="IC$1" pin="A1"/>
 <wire x1="71.12" y1="38.1" x2="78.74" y2="38.1" width="0.1524" layer="91"/>
-<pinref part="RN1" gate="1" pin="3"/>
+<pinref part="RN1" gate="G$1" pin="3"/>
 <wire x1="78.74" y1="38.1" x2="91.44" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="78.74" y1="66.04" x2="78.74" y2="38.1" width="0.1524" layer="91"/>
 <junction x="78.74" y="38.1"/>
@@ -11366,7 +11352,7 @@ Version history:&lt;br&gt;
 <pinref part="SW2" gate="A" pin="4"/>
 <pinref part="U$4" gate="IC$1" pin="A2"/>
 <wire x1="71.12" y1="35.56" x2="83.82" y2="35.56" width="0.1524" layer="91"/>
-<pinref part="RN1" gate="1" pin="4"/>
+<pinref part="RN1" gate="G$1" pin="4"/>
 <wire x1="83.82" y1="35.56" x2="91.44" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="83.82" y1="66.04" x2="83.82" y2="35.56" width="0.1524" layer="91"/>
 <junction x="83.82" y="35.56"/>
