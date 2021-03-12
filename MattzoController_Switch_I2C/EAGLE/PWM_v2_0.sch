@@ -1469,6 +1469,9 @@ Based on the previous libraries:
 <wire x1="17.78" y1="45.72" x2="20.32" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="45.72" x2="20.32" y2="48.26" width="0.1524" layer="91"/>
 <junction x="17.78" y="45.72"/>
+<pinref part="JP8" gate="A" pin="5"/>
+<wire x1="127" y1="27.94" x2="137.16" y2="27.94" width="0.1524" layer="91"/>
+<junction x="127" y="27.94"/>
 </segment>
 </net>
 <net name="N$15" class="0">
@@ -1492,6 +1495,9 @@ Based on the previous libraries:
 <wire x1="27.94" y1="45.72" x2="30.48" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="30.48" y1="45.72" x2="30.48" y2="48.26" width="0.1524" layer="91"/>
 <junction x="27.94" y="45.72"/>
+<pinref part="JP14" gate="A" pin="5"/>
+<wire x1="127" y1="76.2" x2="137.16" y2="76.2" width="0.1524" layer="91"/>
+<junction x="127" y="76.2"/>
 </segment>
 </net>
 <net name="N$4" class="0">
