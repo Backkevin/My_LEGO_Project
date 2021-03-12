@@ -2,7 +2,7 @@
 
  My Lego boards with PCF8574 ,MC23017 ,PCA9685
  
- BUS PINOUT
+ >+ BUS PINOUT
  
 + PIN 1 ---> D0
 + PIN 2 ---> SCL (D1)
@@ -21,9 +21,9 @@
 + PIN 15 --> GND
 + PIN 16 --> GND
 
-PCF8574 adresse
+>+ PCF8574 adresse
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/PCF8574%20address%20map.png)
->MCP23017 adresse
+>+ MCP23017 adresse
 >![]()
 
 -----------------------------------------------------------------
