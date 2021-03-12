@@ -5,6 +5,7 @@
 		* Partlist not OK
 		* [GERBER FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I16/GERBER%20FILES)
 		* [EAGLE FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I16/EAGLE)
+		* [PDF FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I16/PDF)
 	+ Work in progress !
 
 <img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MCP23017 Boards/I16/IMAGE/CPU3.jpg">
