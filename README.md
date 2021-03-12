@@ -7,7 +7,7 @@
 + [MattzoController_Sensor_Digital_I2C](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Sensor_Digital_I2C)
 
 	+ V2.1
-		* Work 75%
+		* Work 90%
 		* Partlist KO
 		* [INO FILE](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Sensor_Digital_I2C/INO/MattzoController_Sensor_Digital_I2C)
 		* [GERBER FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Sensor_Digital_I2C/GERBER%20FILES)
@@ -41,7 +41,7 @@
 + [MattzoController_Switch_I2C](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Switch_I2C)
 
 	+ V2.0
-		* Work 75%
+		* Work 90%
 		* Partlist KO
 		* [INO FILE](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Switch_I2C/INO/MattzoController_Switch_I2C)
 		* [GERBER FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Switch_I2C/GERBER%20FILES)
@@ -57,8 +57,8 @@
 
 + [MattzoStationController_I2C](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoStationController_I2C)
 
-	+ V1.0
-		* Work 75%
+	+ V2.0
+		* Work 90%
 		* Partlist KO
 		* [INO FILE](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoStationController_I2C/INO/MattzoStationController_I2C)
 		* [GERBER FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoStationController_I2C/GERBER%20FILES)
