@@ -1,11 +1,19 @@
 # MattzoController_Signal_I2C
+
+-----------------------------------------------------------------
+
 + MattzoController_Signal_I2C
 	+ V2.1
 		* Work 100%
 		* Partlist not OK
 	+ Work !
+	
+-----------------------------------------------------------------
+
 <img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/CPU3.jpg">
 <img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/OUTPUT2.jpg">
+
+-----------------------------------------------------------------
 
 ### Partslist OUTPUT
                     
@@ -22,12 +30,15 @@ PCF8574P      |               | I/O                    | 2             |
 ULN2803A      |               | Treiber                | 2             |
 74HC540N      |               | Inverter               | 2             |
  
+-----------------------------------------------------------------
 
 ### Partslist CPU
                     
   Part Name   |      PIC      |   Part Info            | Part Quantity |   Part Link 
 ------------- | ------------- | ---------------------- | ------------- | -------------
 
+
+-----------------------------------------------------------------
 
  BUS PINOUT from CPU Board to other Boards
 + PIN 1 ---> D0
@@ -47,5 +58,7 @@ ULN2803A      |               | Treiber                | 2             |
 + PIN 15 --> GND
 + PIN 16 --> GND
 
->+ PCF8574 adresse
+-----------------------------------------------------------------
+
++ PCF8574 adresse
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/PCF8574%20address%20map.png)
