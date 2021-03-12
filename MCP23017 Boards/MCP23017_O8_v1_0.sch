@@ -9952,89 +9952,6 @@ Source: www.kingbright.com</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="resistor-net" urn="urn:adsk.eagle:library:343">
-<description>&lt;b&gt;Generic Resistor Networks&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="RN-5" urn="urn:adsk.eagle:footprint:24948/1" library_version="2">
-<description>&lt;b&gt;RESISTOR NETWORK&lt;/b&gt;</description>
-<wire x1="6.35" y1="-1.27" x2="6.35" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="-6.35" y1="1.27" x2="-6.35" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="-6.35" y1="-1.27" x2="-5.715" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="-6.35" y1="1.27" x2="-5.715" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="-3.81" y1="1.27" x2="-4.445" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="6.35" y1="1.27" x2="-3.81" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="-3.81" y1="-1.27" x2="-4.445" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="-6.35" y1="-1.27" x2="-3.81" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="-3.81" y1="1.27" x2="-3.81" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="-3.81" y1="1.27" x2="-6.35" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="-3.81" y1="-1.27" x2="6.35" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="-5.6896" y1="0.6096" x2="-4.4704" y2="-0.6096" width="0.1524" layer="51"/>
-<wire x1="-5.6896" y1="-0.6096" x2="-4.4704" y2="0.6096" width="0.1524" layer="51"/>
-<pad name="1" x="-5.08" y="0" drill="0.8128" shape="long" rot="R90"/>
-<pad name="2" x="-2.54" y="0" drill="0.8128" shape="long" rot="R90"/>
-<pad name="3" x="0" y="0" drill="0.8128" shape="long" rot="R90"/>
-<pad name="4" x="2.54" y="0" drill="0.8128" shape="long" rot="R90"/>
-<pad name="5" x="5.08" y="0" drill="0.8128" shape="long" rot="R90"/>
-<text x="-3.81" y="-2.921" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-<text x="-3.81" y="1.651" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-</package>
-</packages>
-<packages3d>
-<package3d name="RN-5" urn="urn:adsk.eagle:package:24976/1" type="box" library_version="2">
-<description>RESISTOR NETWORK</description>
-<packageinstances>
-<packageinstance name="RN-5"/>
-</packageinstances>
-</package3d>
-</packages3d>
-<symbols>
-<symbol name="RN04" urn="urn:adsk.eagle:symbol:24947/1" library_version="2">
-<wire x1="-2.54" y1="1.27" x2="-2.54" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="-1.27" x2="2.54" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="2.54" y1="-1.27" x2="2.54" y2="1.27" width="0.254" layer="94"/>
-<wire x1="2.54" y1="1.27" x2="-2.54" y2="1.27" width="0.254" layer="94"/>
-<text x="-2.54" y="2.54" size="1.778" layer="95">&gt;NAME</text>
-<text x="-2.54" y="-4.318" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="1" x="-5.08" y="0" visible="pad" length="short" direction="pas"/>
-<pin name="2" x="5.08" y="0" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="3" x="10.16" y="0" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="4" x="15.24" y="0" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="5" x="20.32" y="0" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="RN04" urn="urn:adsk.eagle:component:24990/2" prefix="RN" uservalue="yes" library_version="2">
-<description>&lt;b&gt;RESISTOR NETWORK&lt;/b&gt;</description>
-<gates>
-<gate name="1" symbol="RN04" x="5.08" y="0"/>
-</gates>
-<devices>
-<device name="" package="RN-5">
-<connects>
-<connect gate="1" pin="1" pad="1"/>
-<connect gate="1" pin="2" pad="2"/>
-<connect gate="1" pin="3" pad="3"/>
-<connect gate="1" pin="4" pad="4"/>
-<connect gate="1" pin="5" pad="5"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:24976/1"/>
-</package3dinstances>
-<technologies>
-<technology name="">
-<attribute name="MF" value="" constant="no"/>
-<attribute name="MPN" value="" constant="no"/>
-<attribute name="OC_FARNELL" value="unknown" constant="no"/>
-<attribute name="OC_NEWARK" value="unknown" constant="no"/>
-<attribute name="POPULARITY" value="0" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="microchip-6">
 <description>&lt;b&gt;Microchip PIC Microcontrollers and other Devices&lt;/b&gt;&lt;p&gt;
 Based on the following sources :
@@ -10501,6 +10418,75 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/21952a.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="resistor-net_edit">
+<description>&lt;b&gt;Generic Resistor Networks&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="RN-3">
+<description>&lt;b&gt;RESISTOR NETWORK&lt;/b&gt;</description>
+<wire x1="3.81" y1="-1.27" x2="3.81" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-6.35" y1="1.27" x2="-6.35" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-6.35" y1="-1.27" x2="-5.715" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="-6.35" y1="1.27" x2="-5.715" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-3.81" y1="1.27" x2="-4.445" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="3.81" y1="1.27" x2="-3.81" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-3.81" y1="-1.27" x2="-4.445" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="-6.35" y1="-1.27" x2="-3.81" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-3.81" y1="1.27" x2="-3.81" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-3.81" y1="1.27" x2="-6.35" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-3.81" y1="-1.27" x2="3.81" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-5.6896" y1="0.6096" x2="-4.4704" y2="-0.6096" width="0.1524" layer="51"/>
+<wire x1="-5.6896" y1="-0.6096" x2="-4.4704" y2="0.6096" width="0.1524" layer="51"/>
+<pad name="1" x="-5.08" y="0" drill="0.8128" shape="long" rot="R90"/>
+<pad name="2" x="-2.54" y="0" drill="0.8128" shape="long" rot="R90"/>
+<pad name="3" x="0" y="0" drill="0.8128" shape="long" rot="R90"/>
+<pad name="4" x="2.54" y="0" drill="0.8128" shape="long" rot="R90"/>
+<text x="-3.81" y="-2.921" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<text x="-3.81" y="1.651" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+</package>
+</packages>
+<symbols>
+<symbol name="RN03">
+<wire x1="-2.54" y1="1.27" x2="-2.54" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-1.27" x2="2.54" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-1.27" x2="2.54" y2="1.27" width="0.254" layer="94"/>
+<wire x1="2.54" y1="1.27" x2="-2.54" y2="1.27" width="0.254" layer="94"/>
+<text x="-2.54" y="2.54" size="1.778" layer="95">&gt;NAME</text>
+<text x="-2.54" y="-4.318" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="1" x="-5.08" y="0" visible="pad" length="short" direction="pas"/>
+<pin name="2" x="5.08" y="0" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="3" x="10.16" y="0" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="4" x="15.24" y="0" visible="pad" length="short" direction="pas" swaplevel="1" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="RN03" prefix="RN" uservalue="yes">
+<description>&lt;b&gt;RESISTOR NETWORK&lt;/b&gt;</description>
+<gates>
+<gate name="G$1" symbol="RN03" x="5.08" y="0"/>
+</gates>
+<devices>
+<device name="" package="RN-3">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="MF" value="" constant="no"/>
+<attribute name="MPN" value="" constant="no"/>
+<attribute name="OC_FARNELL" value="unknown" constant="no"/>
+<attribute name="OC_NEWARK" value="unknown" constant="no"/>
+<attribute name="POPULARITY" value="0" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -10586,7 +10572,7 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/21952a.pdf</description>
 <part name="JP23" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="JP1E" device="" package3d_urn="urn:adsk.eagle:package:15455/1"/>
 <part name="JP24" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="JP1E" device="" package3d_urn="urn:adsk.eagle:package:15455/1"/>
 <part name="SW1" library="special" library_urn="urn:adsk.eagle:library:367" deviceset="SW_DIP-3" device="" package3d_urn="urn:adsk.eagle:package:26663/2"/>
-<part name="RN2" library="resistor-net" library_urn="urn:adsk.eagle:library:343" deviceset="RN04" device="" package3d_urn="urn:adsk.eagle:package:24976/1"/>
+<part name="RN2" library="resistor-net_edit" deviceset="RN03" device=""/>
 <part name="IC5" library="microchip-6" deviceset="MCP23017" device="SP"/>
 </parts>
 <sheets>
@@ -10939,7 +10925,7 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/21952a.pdf</description>
 <attribute name="NAME" x="78.74" y="-61.595" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="78.74" y="-48.26" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="RN2" gate="1" x="81.28" y="-68.58" smashed="yes">
+<instance part="RN2" gate="G$1" x="81.28" y="-68.58" smashed="yes">
 <attribute name="NAME" x="78.74" y="-66.04" size="1.778" layer="95"/>
 <attribute name="VALUE" x="78.74" y="-72.898" size="1.778" layer="96"/>
 </instance>
@@ -11181,7 +11167,7 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/21952a.pdf</description>
 <wire x1="33.02" y1="83.82" x2="33.02" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="76.2" x2="60.96" y2="76.2" width="0.1524" layer="91"/>
 <junction x="33.02" y="83.82"/>
-<pinref part="RN2" gate="1" pin="1"/>
+<pinref part="RN2" gate="G$1" pin="1"/>
 <wire x1="76.2" y1="-68.58" x2="60.96" y2="-68.58" width="0.1524" layer="91"/>
 <pinref part="IC5" gate="G$1" pin="VSS"/>
 <wire x1="119.38" y1="-12.7" x2="71.12" y2="-12.7" width="0.1524" layer="91"/>
@@ -11563,7 +11549,7 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/21952a.pdf</description>
 <segment>
 <pinref part="SW1" gate="A" pin="4"/>
 <wire x1="81.28" y1="-58.42" x2="96.52" y2="-58.42" width="0.1524" layer="91"/>
-<pinref part="RN2" gate="1" pin="4"/>
+<pinref part="RN2" gate="G$1" pin="4"/>
 <wire x1="96.52" y1="-68.58" x2="96.52" y2="-58.42" width="0.1524" layer="91"/>
 <junction x="96.52" y="-58.42"/>
 <pinref part="IC5" gate="G$1" pin="A2"/>
@@ -11575,7 +11561,7 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/21952a.pdf</description>
 <segment>
 <pinref part="SW1" gate="A" pin="5"/>
 <wire x1="81.28" y1="-55.88" x2="91.44" y2="-55.88" width="0.1524" layer="91"/>
-<pinref part="RN2" gate="1" pin="3"/>
+<pinref part="RN2" gate="G$1" pin="3"/>
 <wire x1="91.44" y1="-68.58" x2="91.44" y2="-55.88" width="0.1524" layer="91"/>
 <junction x="91.44" y="-55.88"/>
 <pinref part="IC5" gate="G$1" pin="A1"/>
@@ -11592,7 +11578,7 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/21952a.pdf</description>
 <wire x1="86.36" y1="-53.34" x2="81.28" y2="-53.34" width="0.1524" layer="91"/>
 <wire x1="86.36" y1="-53.34" x2="86.36" y2="-68.58" width="0.1524" layer="91"/>
 <junction x="86.36" y="-53.34"/>
-<pinref part="RN2" gate="1" pin="2"/>
+<pinref part="RN2" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$22" class="0">
