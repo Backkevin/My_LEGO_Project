@@ -1,6 +1,27 @@
 # My_LEGO_Project
 
  My Lego boards with PCF8574 ,MC23017 ,PCA9685
+ 
+ BUS PINOUT
+ 
+PIN 1 ---> D0
+PIN 2 ---> SCL (D1)
+PIN 3 ---> SDA (D2)
+PIN 4 ---> D3
+PIN 5 ---> D4
+PIN 6 ---> D5
+PIN 7 ---> D6
+PIN 8 ---> D7
+PIN 9 ---> D8
+PIN 10 --> RX
+PIN 11 --> TX
+PIN 12 --> D9
+PIN 13 --> +5VDC (Bug 3A/5A /\ AC/DC BUG 1A)
+PIN 14 --> +5VDC
+PIN 15 --> GND
+PIN 16 --> GND
+
+
 
 -----------------------------------------------------------------
 
