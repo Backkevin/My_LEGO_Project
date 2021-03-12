@@ -11347,6 +11347,10 @@ Source: www.kingbright.com</description>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="104,1,119.38,27.94,IC5,VDD,VCC5.2,,,"/>
+<approved hash="104,1,119.38,-12.7,IC5,VSS,GND1,,,"/>
+</errors>
 </schematic>
 </drawing>
 <compatibility>
