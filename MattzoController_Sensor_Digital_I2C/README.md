@@ -1,10 +1,10 @@
 # MattzoController_Sensor_Digital_I2C
 + MattzoController_Sensor_Digital_I2C
-	+ V2.0
-		* Work 75%
+	+ V2.1
+		* Work 90%
 		* Partlist not OK
 	+ Work in progress !
-<img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/CPU2.jpg">
+<img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/CPU3.jpg">
 <img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/INPUT2.jpg">
 
 ### Partslist INPUT
