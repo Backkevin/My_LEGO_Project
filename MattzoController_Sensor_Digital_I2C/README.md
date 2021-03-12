@@ -4,6 +4,9 @@
 		* Work 90%
 		* Partlist not OK
 	+ Work in progress !
+
+<img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/EAGLE/CPU_v3_0_b.pdf">
+
 <img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/CPU3.jpg">
 <img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/INPUT2.jpg">
 
