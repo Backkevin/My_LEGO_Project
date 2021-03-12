@@ -97,9 +97,9 @@
 		
 	+ Work in progress !
 >+ V3.0
->![](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I16/CPU3.jpg)
+>![](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I16/IMAGE/CPU3.jpg)
 >+ V1.0
->![](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I16/I16.jpg)
+>![](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I16/IMAGE/I16.jpg)
 -----------------------------------------------------------------
 
 + [MCP23017 Boards O8](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/O8)
@@ -113,9 +113,9 @@
 		
 	+ Work in progress !
 >+ V3.0
->![](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/O8/CPU3.jpg)
+>![](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/O8/IMAGE/CPU3.jpg)
 >+ V1.0
->![](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/O8/O8.jpg)
+>![](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/O8/IMAGE/O8.jpg)
 -----------------------------------------------------------------
 
 + [MCP23017 Boards I8O4](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I8O4)
@@ -129,6 +129,6 @@
 		
 	+ Work in progress !
 >+ V3.0
->![](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I8O4/CPU3.jpg)
+>![](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I8O4/IMAGE/CPU3.jpg)
 >+ V1.0
->![](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I8O4/I8O4.jpg)
+>![](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I8O4/IMAGE/I8O4.jpg)
