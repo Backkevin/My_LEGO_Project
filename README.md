@@ -87,8 +87,8 @@
 	+ V1.0
 		* Work 50%
 		* Partlist KO
-		* [GERBER FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I16)
-		* [EAGLE FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I16)
+		* [GERBER FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I16/GERBER%20FILES)
+		* [EAGLE FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I16/EAGLE)
 		
 	+ Work in progress !
 >+ V3.0
@@ -102,8 +102,8 @@
 	+ V1.0
 		* Work 50%
 		* Partlist KO
-		* [GERBER FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/O8)
-		* [EAGLE FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/O8)
+		* [GERBER FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/O8/GERBER%20FILES)
+		* [EAGLE FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/O8/EAGLE)
 		
 	+ Work in progress !
 >+ V3.0
@@ -117,8 +117,8 @@
 	+ V1.0
 		* Work 50%
 		* Partlist KO
-		* [GERBER FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I8O4)
-		* [EAGLE FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I8O4)
+		* [GERBER FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I8O4/GERBER%20FILES)
+		* [EAGLE FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I8O4/EAGLE)
 		
 	+ Work in progress !
 >+ V3.0
