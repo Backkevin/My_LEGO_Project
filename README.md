@@ -21,6 +21,10 @@
 + PIN 15 --> GND
 + PIN 16 --> GND
 
+PCF8574 adresse
+
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/PCF8574%20address%20map.png)
+
 -----------------------------------------------------------------
 
 + [MattzoController_Sensor_Digital_I2C](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Sensor_Digital_I2C)
