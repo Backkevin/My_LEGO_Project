@@ -181,8 +181,8 @@
 <hole x="3.81" y="86.36" drill="3.5"/>
 <hole x="3.81" y="3.81" drill="3.5"/>
 <hole x="86.36" y="3.81" drill="3.5"/>
-<text x="7.62" y="86.36" size="1.778" layer="25">PWM V1.1</text>
-<text x="83.82" y="86.36" size="1.778" layer="26" rot="MR0">PWM V1.1</text>
+<text x="7.62" y="86.36" size="1.778" layer="25">PWM V2.0</text>
+<text x="83.82" y="86.36" size="1.778" layer="26" rot="MR0">PWM V2.0</text>
 <text x="67.429" y="46.643" size="1.016" layer="21" ratio="12" rot="R180">GND</text>
 <text x="67.27" y="38.134" size="1.016" layer="21" ratio="12" rot="R180">V+</text>
 <text x="69.088" y="13.97" size="1.016" layer="21" ratio="12" rot="R90">GND</text>
