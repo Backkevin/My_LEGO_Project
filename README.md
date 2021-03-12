@@ -82,7 +82,7 @@
 
 -----------------------------------------------------------------
 
-+ [MCP23017 Boards I16](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards)
++ [MCP23017 Boards I16](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I16)
 
 	+ V1.0
 		* Work 50%
@@ -97,7 +97,7 @@
 >![](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I16/I16.jpg)
 -----------------------------------------------------------------
 
-+ [MCP23017 Boards O8](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards)
++ [MCP23017 Boards O8](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/O8)
 
 	+ V1.0
 		* Work 50%
