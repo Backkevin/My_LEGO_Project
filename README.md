@@ -181,5 +181,5 @@
 >+ V3.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/L9110%20Board/IMAGE/CPU3.jpg)
 >+ V1.0
->![](https://github.com/Backkevin/My_LEGO_Project/blob/master/L9110%20Board/IMAGE/DEFAULT.jpg)
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/L9110%20Board/IMAGE/Default.jpg)
 -----------------------------------------------------------------
