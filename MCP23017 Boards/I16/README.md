@@ -4,8 +4,8 @@
 		* Work 50%
 		* Partlist not OK
 	+ Work in progress !
-<img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MCP23017 Boards/IMAGE/CPU3.jpg">
-<img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MCP23017 Boards/IMAGE/INPUT2.jpg">
+<img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MCP23017 Boards/I16/IMAGE/CPU3.jpg">
+<img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MCP23017 Boards/I16/IMAGE/INPUT2.jpg">
 
 ### Partslist INPUT
                     
