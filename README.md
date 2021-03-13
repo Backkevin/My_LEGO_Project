@@ -31,7 +31,7 @@
 
 -----------------------------------------------------------------
 
-+Conpatible sensors and actors
++ Conpatible sensors and actors
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/train_sensor.jpg)
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/train_light.jpg)
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Switch_I2C/IMAGE/train_switch.jpg)
