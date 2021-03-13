@@ -64,3 +64,7 @@ ULN2803A      |               | Treiber                | 2             |
 + PINOUT
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/Output%20pinout.jpg)
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/Resistor%20pinout.jpg)
++ OUPUT SENSORs
+>![]()
+>![]()
+>![]()
