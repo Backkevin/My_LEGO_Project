@@ -55,7 +55,7 @@
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/PCF8574%20address%20map.png)
 + PINOUT
 >![]()
->+ INPUT SENSORs
++ INPUT SENSORs
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/train_sensor.jpg)
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/magnet.jpg)
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/A3144.jpg)
