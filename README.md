@@ -28,7 +28,8 @@
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/PCF8574%20address%20map.png)
 + MCP23017 adresse
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MCP23017%20Boards/I16/IMAGE/MCP23017-I2C-Address.png)
-
++ PCA9685 adresse
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/pca9685-adressen.jpg)
 -----------------------------------------------------------------
 
 + Conpatible sensors and actors
