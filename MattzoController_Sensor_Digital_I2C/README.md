@@ -11,7 +11,7 @@
 -----------------------------------------------------------------
 
 <img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/Input%20pinout.jpg">
-
+<img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/PCF8574%20address%20map.png">
 <img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/CPU3.jpg">
 <img src="https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/INPUT2.jpg">
 
