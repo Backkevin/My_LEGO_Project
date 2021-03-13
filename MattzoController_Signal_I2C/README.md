@@ -63,3 +63,4 @@ ULN2803A      |               | Treiber                | 2             |
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/PCF8574%20address%20map.png)
 + PINOUT
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/Output%20pinout.jpg)
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/Resistor%20pinout.jpg)
