@@ -53,6 +53,8 @@
 
 + PCF8574 adresse
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Switch_I2C/IMAGE/PCF8574%20address%20map.png)
++ PCA9685 adresse
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/pca9685-adressen.jpg)
 + PINOUT
 >![]()
 + OUTPUT AKTORs
