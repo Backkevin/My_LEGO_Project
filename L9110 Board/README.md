@@ -1,4 +1,5 @@
 + [L9110 Board](https://github.com/Backkevin/My_LEGO_Project/tree/master/L9110%20Board)
++ 8 Inputs and 4 motor Outputs with extra power in
 
 	+ V1.0
 		* Work 0%
