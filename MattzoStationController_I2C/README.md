@@ -56,10 +56,10 @@
 + PINOUT
 >![]()
 >+ INPUT SENSORs
->![]()
->![]()
->![]()
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/train_sensor.jpg)
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/magnet.jpg)
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/A3144.jpg)
 + OUTPUT AKTORs
->![]()
->![]()
->![]()
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/train_boom.jpg)
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/train_light.jpg)
+
