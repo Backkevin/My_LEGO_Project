@@ -31,6 +31,17 @@
 
 -----------------------------------------------------------------
 
++Conpatible sensors and actors
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/train_sensor.jpg)
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/train_light.jpg)
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Switch_I2C/IMAGE/train_switch.jpg)
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/train_boom.jpg)
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/A3144.jpg)
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/magnet.jpg)
+>![]()
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+
 + [MattzoController_Sensor_Digital_I2C](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Sensor_Digital_I2C)
 
 	+ V2.1
