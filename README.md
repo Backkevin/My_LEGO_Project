@@ -55,9 +55,9 @@
 		* [PDF FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Sensor_Digital_I2C/PDF)
 		
 	+ Work in progress !
->+ V3.0
+>+ CPU V3.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/CPU3.jpg)
->+ V2.1
+>+ INPUT V2.1
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/INPUT2.jpg)
 -----------------------------------------------------------------
 
@@ -72,9 +72,9 @@
 		* [EAGLE FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Signal_I2C/EAGLE)
 		* [PDF FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Signal_I2C/PDF)
 		
->+ V3.0
+>+ CPU V3.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/CPU3.jpg)
->+ V2.1
+>+ OUTPUT V2.1
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/OUTPUT2.jpg)
 -----------------------------------------------------------------
 
@@ -90,9 +90,9 @@
 		* [PDF FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoController_Switch_I2C/PDF)
 		
 	+ Work in progress !
->+ V3.0
+>+ CPU V3.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Switch_I2C/IMAGE/CPU3.jpg)
->+ V2.0
+>+ PWM V2.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Switch_I2C/IMAGE/PWM2.jpg)
 -----------------------------------------------------------------
 
@@ -108,13 +108,13 @@
 		* [PDF FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MattzoStationController_I2C/PDF)
 		
 	+ Work in progress !
->+ V3.0
+>+ CPU V3.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/CPU3.jpg)
->+ V2.1
+>+ INPUT V2.1
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/INPUT2.jpg)
->+ V2.1
+>+ OUTPUT V2.1
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/OUTPUT2.jpg)
->+ V2.0
+>+ PWM V2.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Switch_I2C/IMAGE/PWM2.jpg)
 -----------------------------------------------------------------
 
@@ -135,9 +135,9 @@
 		* [PDF FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/I16/PDF)
 		
 	+ Work in progress !
->+ V3.0
+>+ CPU V3.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MCP23017%20Boards/I16/IMAGE/CPU3.jpg)
->+ V1.0
+>+ I16 V1.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MCP23017%20Boards/I16/IMAGE/I16.jpg)
 -----------------------------------------------------------------
 
@@ -151,9 +151,9 @@
 		* [PDF FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/O8/PDF)
 		
 	+ Work in progress !
->+ V3.0
+>+ CPU V3.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MCP23017%20Boards/O8/IMAGE/CPU3.jpg)
->+ V1.0
+>+ O8 V1.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MCP23017%20Boards/O8/IMAGE/O8.jpg)
 -----------------------------------------------------------------
 
@@ -190,8 +190,8 @@
 		* [PDF FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/L9110%20Board/PDF)
 		
 	+ Work in progress !
->+ V3.0
+>+ CPU V3.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/L9110%20Board/IMAGE/CPU3.jpg)
->+ V1.0
+>+ I8O4 V1.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/L9110%20Board/IMAGE/Default.jpg)
 -----------------------------------------------------------------
