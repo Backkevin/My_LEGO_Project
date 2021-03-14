@@ -17,15 +17,24 @@
 
 #include <Wire.h>                                 //
 #include <PCF8574.h>                              //
-PCF8574 PCF_01(0x38);                             // set adr from PCF8574   ==> 000
-PCF8574 PCF_02(0x39);                             // set adr from PCF8574   ==> 100
-PCF8574 PCF_03(0x3A);                             // set adr from PCF8574   ==> 010
-PCF8574 PCF_04(0x3B);                             // set adr from PCF8574   ==> 110
-PCF8574 PCF_05(0x3C);                             // set adr from PCF8574   ==> 001
-PCF8574 PCF_06(0x3D);                             // set adr from PCF8574   ==> 101
-PCF8574 PCF_07(0x3E);                             // set adr from PCF8574   ==> 011
-PCF8574 PCF_08(0x3F);                             // set adr from PCF8574   ==> 111
-
+/*
+PCF8574 PCF_01(0x38);                             // set adr from PCF8574P    ==> 000
+PCF8574 PCF_02(0x39);                             // set adr from PCF8574P    ==> 100
+PCF8574 PCF_03(0x3A);                             // set adr from PCF8574P    ==> 010
+PCF8574 PCF_04(0x3B);                             // set adr from PCF8574P    ==> 110
+PCF8574 PCF_05(0x3C);                             // set adr from PCF8574P    ==> 001
+PCF8574 PCF_06(0x3D);                             // set adr from PCF8574P    ==> 101
+PCF8574 PCF_07(0x3E);                             // set adr from PCF8574P    ==> 011
+PCF8574 PCF_08(0x3F);                             // set adr from PCF8574P    ==> 111
+*/
+PCF8574 PCF_01(0x20);                             // set adr from PCF8574AP   ==> 000
+PCF8574 PCF_02(0x21);                             // set adr from PCF8574AP   ==> 100
+PCF8574 PCF_03(0x22);                             // set adr from PCF8574AP   ==> 010
+PCF8574 PCF_04(0x23);                             // set adr from PCF8574AP   ==> 110
+PCF8574 PCF_05(0x24);                             // set adr from PCF8574AP   ==> 001
+PCF8574 PCF_06(0x25);                             // set adr from PCF8574AP   ==> 101
+PCF8574 PCF_07(0x26);                             // set adr from PCF8574AP   ==> 011
+PCF8574 PCF_08(0x27);                             // set adr from PCF8574AP   ==> 111
 
 // Time in milliseconds until release event is reported after sensor has lost contact
 const int SENSOR_RELEASE_TICKS = 100;
