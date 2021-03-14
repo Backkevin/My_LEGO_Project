@@ -64,3 +64,4 @@ PCF8574P      |               | I/O                    | 2             |
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/train_sensor.jpg)
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/magnet.jpg)
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/A3144.jpg)
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Sensor_Digital_I2C/IMAGE/lichtschranke.jpg)
