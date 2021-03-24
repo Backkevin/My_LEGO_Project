@@ -121,7 +121,7 @@ based on MattzoController Firmware V0.3
 >+ PWM V2.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Switch_I2C/IMAGE/PWM2.jpg)
 >+ Tower
->![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/TOWER_Crossing.jpg)
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/TOWER_Crossing.jpg)
 -----------------------------------------------------------------
 
 
