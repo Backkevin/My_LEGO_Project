@@ -194,6 +194,6 @@ based on MattzoController Firmware V0.3
 	+ Work in progress !
 >+ CPU V3.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/L9110%20Board/IMAGE/CPU3.jpg)
->+ I8O4 V1.0
+>+ L9110 V1.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/L9110%20Board/IMAGE/Default.jpg)
 -----------------------------------------------------------------
