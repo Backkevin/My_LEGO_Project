@@ -78,6 +78,8 @@ based on MattzoController Firmware V0.3
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/CPU3.jpg)
 >+ OUTPUT V2.1
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/OUTPUT2.jpg)
+>+ Tower
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/TOWER_Signal.jpg)
 -----------------------------------------------------------------
 
 
@@ -118,6 +120,8 @@ based on MattzoController Firmware V0.3
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Signal_I2C/IMAGE/OUTPUT2.jpg)
 >+ PWM V2.0
 >![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoController_Switch_I2C/IMAGE/PWM2.jpg)
+>+ Tower
+>![](https://github.com/Backkevin/My_LEGO_Project/blob/master/MattzoStationController_I2C/IMAGE/TOWER_Crossing.jpg)
 -----------------------------------------------------------------
 
 
