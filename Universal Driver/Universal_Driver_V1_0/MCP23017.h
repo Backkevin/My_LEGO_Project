@@ -15,7 +15,7 @@
 
 
 // ***************************
-// Controller wiring specifics
+//      Editable settings 
 // ***************************
 
 // MCP23017 port expander used?
@@ -23,6 +23,15 @@
 
 // Number of chained PCA9685 port extenders
 #define NUM_MCP23017s 1
+
+
+
+
+
+
+// ***************************
+//     Controller settings 
+// ***************************
 
 // Addresses of MCP23017 port extenders
 uint8_t MCP23017_ADR[8]= {0x20, 0x21 , 0x22, 0x23, 0x24, 0x25, 0x26, 0x27}; //don`t edit
