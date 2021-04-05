@@ -19,7 +19,7 @@
 // ***************************
 
 // MCP23017 port expander used?
-#define USE_MCP23017 false
+#define USE_MCP23017  false
 
 // Number of chained PCA9685 port extenders
 #define NUM_MCP23017s 1
