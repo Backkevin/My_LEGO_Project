@@ -15,7 +15,7 @@
 
 
 // ***************************
-// Controller wiring specifics
+//      Editable settings 
 // ***************************
 
 // L9110_BOARD used?
@@ -23,6 +23,15 @@
 
 // Number of chained L9110_BOARD
 #define NUM_L9110_BOARDs 1
+
+
+
+
+
+
+// ***************************
+//     Controller settings 
+// ***************************
 
 // Addresses of MCP23017 port extenders on L9110_BOARD
 uint8_t L9110_BOARD_ADR[8]= {0x27, 0x26 , 0x25, 0x24, 0x23, 0x22, 0x21, 0x20}; //don`t edit
