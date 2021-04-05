@@ -19,8 +19,8 @@
 
 #define ONLY_INPUTS          false 
 #define ONLY_SIGNALS         false   
-#define ONLY_SWITCHES        true
-#define ONLY_CROSSINGS       false  
+#define ONLY_SWITCHES        false
+#define ONLY_CROSSINGS       true  
 #define ONLY_BRIDGES         false  
 #define ONLY_ELEVATOR        false
 
