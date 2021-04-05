@@ -15,14 +15,23 @@
 
 
 // ***************************
-// Controller wiring specifics
+//      Editable settings 
 // ***************************
 
 // PCF8574 port expander used?
-#define USE_PCF8574 true
+#define USE_PCF8574 false
 
 // Number of chained PCF8574 port extenders
 #define NUM_PCF8574s 2
+
+// Type of PCF8574 port extenders
+#define TYPE_PCF8574 false // true = 20-27 or false = 38-3F
+
+
+
+// ***************************
+//     Controller settings 
+// ***************************
 
 // Number of sensors 
 const int NUM_SENSORS = 8 * NUM_PCF8574s; //don`t edit
@@ -31,11 +40,6 @@ uint8_t IN[NUM_SENSORS] = {0, 1, 2, 3, 4, 5, 6, 7}; //don`t edit
 // Number of signal ports
 const int NUM_SIGNALPORTS = 8 * NUM_PCF8574s; //don`t edit
 uint8_t OUT[NUM_SIGNALPORTS] = {0, 1, 2, 3, 4, 5, 6, 7}; //don`t edit
-
-
-
-// Type of PCF8574 port extenders
-#define TYPE_PCF8574 false // true = 20-27 or false = 38-3F
 
 // Addresses of PCF8574 port extenders
 #if TYPE_PCF8574
