@@ -102,7 +102,7 @@ const int SWITCH_DELAY = 200;
 
 // Time after servo operation until servo power is switched off (in milliseconds; 3000 = 3 sec.)
 // Presently only supported when using PCA9685
-const int SERVOSLEEPMODEAFTER_MS = 3000;
+const int SERVOSLEEPMODEAFTER_MS = 500;
 
 // time when servos will go to sleep mode
 bool servoSleepMode = false;
