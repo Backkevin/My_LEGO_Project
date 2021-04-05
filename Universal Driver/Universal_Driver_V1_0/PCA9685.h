@@ -15,18 +15,31 @@
 
 
 // ***************************
-// Controller wiring specifics
+//      Editable settings 
 // ***************************
 
 // PCA9685 port expander used?
-#define USE_PCA9685 false
+#define USE_PCA9685 true
 
 // Number of chained PCA9685 port extenders
-#define NUM_PCA9685s 1
+#define NUM_PCA9685s 2
 
 // PCA9685 OE pin supported?
-bool PCA9685_OE_PIN_INSTALLED = false;  // set to true if OE pin is connected (false if not) max 8 OE Pins
+bool PCA9685_OE_PIN_INSTALLED = true;  // set to true if OE pin is connected (false if not) max 8 OE Pins
+
+
+
+// ***************************
+//     Controller settings 
+// ***************************
+
 uint8_t PCA9685_OE_PIN[8]= {D3, D6 , D5, D7, D4, D9, D0, D8};  // D0,D3,D4,D5 right PCA D6,D7,D8,D9 left PCA D0,D8 info leds on cpu board
 
 // Addresses of PCA9685 port extenders
 uint8_t PCA9685_ADR[8]= {0x40, 0x41 , 0x42, 0x43, 0x44, 0x45, 0x46, 0x47}; //don`t edit
+
+// Digital output pins for switch servos
+uint8_t SWITCHPORT_PIN[16] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}; //don`t edit
+
+// Number of switch ports
+const int NUM_SWITCHPORTS = 16 * NUM_PCA9685s; //don`t edit
