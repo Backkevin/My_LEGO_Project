@@ -17,22 +17,12 @@
 // SYSTEM specifics
 // ***************************
 
-// System used?
-
-// DEFAULT        = 0
-// ONLY INPUTS    = 1
-// ONLY SIGNALS   = 2
-// SWITCHES       = 3
-// CROSSINGS      = 4
-// BRIDGES        = 5
-
-const int USED_SYS = 1; // set this to your choice
-
-#define ONLY_INPUTS          true   // 1
-#define ONLY_SIGNALS         false  // 2
-#define ONLY_SWITCHES        false  // 3
-#define ONLY_CROSSINGS       false  // 4
-#define ONLY_BRIDGES         false  // 5
+#define ONLY_INPUTS          false 
+#define ONLY_SIGNALS         false   
+#define ONLY_SWITCHES        true
+#define ONLY_CROSSINGS       false  
+#define ONLY_BRIDGES         false  
+#define ONLY_ELEVATOR        false
 
 // STATUS LED WIRING CONFIGURATION
 
