@@ -235,13 +235,16 @@ Sensor_TCRT5000_board_V_1_0
 + --> OUTPUT Board or O8 Board
 + 
 + only SWITCH (todo for PCA9685)    
++ --> PWM Board
++
++ full SWITCH (todo for PCF8574) (todo for MCP23017) (todo for PCA9685)    
 + --> INPUT Board or I16 Board + OUTPUT Board or O8 Board + PWM Board
 + 
-+ only CROSSING (todo for PCF8574) (todo for MCP23017) (todo for PCA9685)    
++ full CROSSING (todo for PCF8574) (todo for MCP23017) (todo for PCA9685)    
 + --> INPUT Board or I16 Board + OUTPUT Board or O8 Board + PWM Board
 + 
-+ only BRIDGE (todo for PCF8574) (todo for MCP23017) (todo for PCA9685) (todo for L9110)    
++ full BRIDGE (todo for PCF8574) (todo for MCP23017) (todo for PCA9685) (todo for L9110)    
 + --> INPUT Board or I16 Board + OUTPUT Board or O8 Board + PWM Board + L9110 Board
 + 
-+ only ELEVATOR (todo for PCF8574) (todo for MCP23017) (todo for PCA9685) (todo for L9110)    
++ full ELEVATOR (todo for PCF8574) (todo for MCP23017) (todo for PCA9685) (todo for L9110)    
 + --> INPUT Board or I16 Board + OUTPUT Board or O8 Board + PWM Board + L9110 Board
