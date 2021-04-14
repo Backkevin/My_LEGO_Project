@@ -226,20 +226,22 @@ Sensor_TCRT5000_board_V_1_0
 
 -----------------------------------------------------------------
 -----------------------------------------------------------------
->i work on a new software based on MattzoController Firmware V0.4
->
->[UNIVERSAL DRIVER](https://github.com/Backkevin/My_LEGO_Project/tree/master/Universal%20Driver/Universal_Driver_V1_0) for all the boards in all constalation
+>i work on a new software based on MattzoController Firmware V0.41
 
-
-+ only INPUTS (written for PCF8574) (todo for MCP23017)
++ only INPUTS (todo for PCF8574) (todo for MCP23017)
 + --> INPUT Board or I16 Board
-+ only SIGNALS (written for PCF8574) (todo for MCP23017)   
++ 
++ only SIGNALS (todo for PCF8574) (todo for MCP23017)   
 + --> OUTPUT Board or O8 Board
-+ only SWITCH (written for PCA9685)    
-+ --> PWM Board
++ 
++ only SWITCH (todo for PCA9685)    
++ --> INPUT Board or I16 Board + OUTPUT Board or O8 Board + PWM Board
++ 
 + only CROSSING (todo for PCF8574) (todo for MCP23017) (todo for PCA9685)    
 + --> INPUT Board or I16 Board + OUTPUT Board or O8 Board + PWM Board
++ 
 + only BRIDGE (todo for PCF8574) (todo for MCP23017) (todo for PCA9685) (todo for L9110)    
 + --> INPUT Board or I16 Board + OUTPUT Board or O8 Board + PWM Board + L9110 Board
++ 
 + only ELEVATOR (todo for PCF8574) (todo for MCP23017) (todo for PCA9685) (todo for L9110)    
 + --> INPUT Board or I16 Board + OUTPUT Board or O8 Board + PWM Board + L9110 Board
