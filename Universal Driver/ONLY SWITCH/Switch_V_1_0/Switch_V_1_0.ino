@@ -1,5 +1,5 @@
 /*
- * PCA9685 written but not tested
+ * written for PCA9685 ,but not tested
  */
 
 #define MATTZO_CONTROLLER_TYPE "OSW"
