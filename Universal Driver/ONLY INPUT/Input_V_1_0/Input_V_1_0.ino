@@ -95,10 +95,23 @@ void setupPCF8574() {
 
 #if USE_MCP23017
 void setupMCP23017() {
+
+  int count = 0;
+    
   for (int m = 0; m < NUM_MCP23017s; m++) {
-    mcp23017[m] = Adafruit_MCP23017(MCP23017_ADR[m]);
+    mcp23017[m] = Adafruit_MCP23017();
     mcp23017[m].begin();
+    
+    for (int i = 0; i < 15; i++) {
+      mcp23017[m].pinMode(IN_MCP[i], INPUT);
+      mcp23017[m].pullUp(IN_MCP[i], HIGH); // turn on a 100K pull-up resistor internally
+      sensorTriggerState[count] = LOW;
+      count++;
+      sensorState[count] = false;
+    }
+    
   }
+  
 }
 #endif
 
@@ -141,11 +154,44 @@ void monitorSensors() {
   for (int i = 0; i < NUM_SENSORS; i++) {
     int b;
     int sensorValue;
+
+#if USE_MCP23017
+
+    if(i <= 15)
+    {
+      b = i;
+      sensorValue = mcp23017[0].digitalRead(IN_MCP[b]);
+    }else if(i >= 16 && i <= 31){
+      b = i - 16;
+      sensorValue = mcp23017[1].digitalRead(IN_MCP[b]);  
+    }else if(i >= 32 && i <= 47){
+      b = i - 32;
+      sensorValue = mcp23017[2].digitalRead(IN_MCP[b]);  
+    }else if(i >= 48 && i <= 63){
+      b = i - 48;
+      sensorValue = mcp23017[3].digitalRead(IN_MCP[b]);  
+    }else if(i >= 64 && i <= 79){
+      b = i - 64;
+      sensorValue = mcp23017[4].digitalRead(IN_MCP[b]);  
+    }else if(i >= 80 && i <= 95){
+      b = i - 80;
+      sensorValue = mcp23017[5].digitalRead(IN_MCP[b]);  
+    }else if(i >= 96 && i <= 111){
+      b = i - 96;
+      sensorValue = mcp23017[6].digitalRead(IN_MCP[b]);  
+    }else if(i >= 112){
+      b = i - 112;
+      sensorValue = mcp23017[7].digitalRead(IN_MCP[b]);  
+    }
+
+#endif
+
+#if USE_PCF8574
     
     if(i <= 7)
     {
       b = i;
-      sensorValue = PCF_01.read(IN_PCF[b]);
+      sensorValue = PCF_01.digitalread(IN_PCF[b]);
     }else if(i >= 8 && i <= 15){
       b = i - 8;
       sensorValue = PCF_02.read(IN_PCF[b]);  
@@ -168,6 +214,8 @@ void monitorSensors() {
       b = i - 56;
       sensorValue = PCF_08.read(IN_PCF[b]);  
     }
+
+#endif
 
     if (sensorValue == sensorTriggerState[i]) {
       // Contact -> report contact immediately
