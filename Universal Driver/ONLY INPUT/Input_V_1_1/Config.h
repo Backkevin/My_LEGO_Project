@@ -30,7 +30,7 @@ uint8_t STATUS_LED_PIN = D8; //D0 or D8 on CPU Board
 //////////**********//////////
 
 // PCF8574 port expander used?
-#define USE_PCF8574 true
+#define USE_PCF8574 false
 
 // Number of chained PCF8574 port extenders  (max 8)
 #define NUM_PCF8574s 2
@@ -78,7 +78,5 @@ uint8_t PCF8574_ADR[8]= {0x38, 0x39 , 0x38, 0x3A, 0x3B, 0x3C, 0x3E, 0x3F};
 #endif
 
 //////////**********//////////
-
-uint8_t MCP23017_ADR[8]= {0x20, 0x21 , 0x22, 0x23, 0x24, 0x25, 0x26, 0x27};
 
 uint8_t IN_MCP[16] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}; 
