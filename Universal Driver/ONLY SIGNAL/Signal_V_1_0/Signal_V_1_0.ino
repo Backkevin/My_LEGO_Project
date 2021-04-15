@@ -6,7 +6,6 @@
 
 
 #include <ESP8266WiFi.h>                          // WiFi library for ESP-8266
-#include <Servo.h>                                // Servo library
 #include <Wire.h>                                 // Built-in library for I2C
 #include "Config.h"                               // this file should be placed in the same folder
 #include "MattzoController_Library.h"             // this file needs to be placed in the Arduino library folder
@@ -172,28 +171,28 @@ void setSignalLED(int index, bool ledState) {
   if(index <= 7)
     {
       index = index - 0;
-      PCF_01.write(OUT[index], ledState ? LOW : HIGH);
+      PCF_01.write(OUT_PCF[index], ledState ? LOW : HIGH);
     }else if(index >= 8 && index <= 15){
       index = index - 8;
-      PCF_02.write(OUT[index], ledState ? LOW : HIGH); 
+      PCF_02.write(OUT_PCF[index], ledState ? LOW : HIGH); 
     }else if(index >= 16 && index <= 23){
       index = index - 16;
-      PCF_03.write(OUT[index], ledState ? LOW : HIGH);
+      PCF_03.write(OUT_PCF[index], ledState ? LOW : HIGH);
     }else if(index >= 24 && index <= 31){
       index = index - 24;
-      PCF_04.write(OUT[index], ledState ? LOW : HIGH);
+      PCF_04.write(OUT_PCF[index], ledState ? LOW : HIGH);
     }else if(index >= 32 && index <= 39){
       index = index - 32;
-      PCF_05.write(OUT[index], ledState ? LOW : HIGH);
+      PCF_05.write(OUT_PCF[index], ledState ? LOW : HIGH);
     }else if(index >= 40 && index <= 47){
       index = index - 40;
-      PCF_06.write(OUT[index], ledState ? LOW : HIGH);
+      PCF_06.write(OUT_PCF[index], ledState ? LOW : HIGH);
     }else if(index >= 48 && index <= 55){
       index = index - 48;
-      PCF_07.write(OUT[index], ledState ? LOW : HIGH);
+      PCF_07.write(OUT_PCF[index], ledState ? LOW : HIGH);
     }else if(index >= 56){
       index = index - 56;
-      PCF_08.write(OUT[index], ledState ? LOW : HIGH);
+      PCF_08.write(OUT_PCF[index], ledState ? LOW : HIGH);
     }
 
     
