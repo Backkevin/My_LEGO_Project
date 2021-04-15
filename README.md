@@ -228,13 +228,16 @@ Sensor_TCRT5000_board_V_1_0
 -----------------------------------------------------------------
 >i work on a new software based on MattzoController Firmware V0.41
 
-+ only INPUTS (ok for PCF8574) (todo for MCP23017)
-+ --> INPUT Board or I16 Board
++ only INPUTS (ok for PCF8574) (ok for MCP23017)
++ --> INPUT Board and I16 Board @ same time
 + 
-+ only SIGNALS (ok for PCF8574) (todo for MCP23017)   
-+ --> OUTPUT Board or O8 Board
++ only SIGNALS (ok for PCF8574) (ok for MCP23017)   
++ --> OUTPUT Board and O8 Board @ same time
 + 
 + only SWITCH (ok for PCA9685)    
++ --> PWM Board
++
++ only BOOM (ok for PCA9685)    
 + --> PWM Board
 +
 + full SWITCH (todo for PCF8574) (todo for MCP23017) (todo for PCA9685)    
