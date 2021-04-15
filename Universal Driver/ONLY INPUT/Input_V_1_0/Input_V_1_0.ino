@@ -6,7 +6,6 @@
 
 
 #include <ESP8266WiFi.h>                          // WiFi library for ESP-8266
-#include <Servo.h>                                // Servo library
 #include <Wire.h>                                 // Built-in library for I2C
 #include "Config.h"                               // this file should be placed in the same folder
 #include "MattzoController_Library.h"             // this file needs to be placed in the Arduino library folder
@@ -146,28 +145,28 @@ void monitorSensors() {
     if(i <= 7)
     {
       b = i;
-      sensorValue = PCF_01.read(IN[b]);
+      sensorValue = PCF_01.read(IN_PCF[b]);
     }else if(i >= 8 && i <= 15){
       b = i - 8;
-      sensorValue = PCF_02.read(IN[b]);  
+      sensorValue = PCF_02.read(IN_PCF[b]);  
     }else if(i >= 16 && i <= 23){
       b = i - 16;
-      sensorValue = PCF_03.read(IN[b]);  
+      sensorValue = PCF_03.read(IN_PCF[b]);  
     }else if(i >= 24 && i <= 31){
       b = i - 24;
-      sensorValue = PCF_04.read(IN[b]);  
+      sensorValue = PCF_04.read(IN_PCF[b]);  
     }else if(i >= 32 && i <= 39){
       b = i - 32;
-      sensorValue = PCF_05.read(IN[b]);  
+      sensorValue = PCF_05.read(IN_PCF[b]);  
     }else if(i >= 40 && i <= 47){
       b = i - 40;
-      sensorValue = PCF_06.read(IN[b]);  
+      sensorValue = PCF_06.read(IN_PCF[b]);  
     }else if(i >= 48 && i <= 55){
       b = i - 48;
-      sensorValue = PCF_07.read(IN[b]);  
+      sensorValue = PCF_07.read(IN_PCF[b]);  
     }else if(i >= 56){
       b = i - 56;
-      sensorValue = PCF_08.read(IN[b]);  
+      sensorValue = PCF_08.read(IN_PCF[b]);  
     }
 
     if (sensorValue == sensorTriggerState[i]) {
