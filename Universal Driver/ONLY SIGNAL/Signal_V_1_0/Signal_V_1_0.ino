@@ -91,8 +91,12 @@ void setupPCF8574() {
 #if USE_MCP23017
 void setupMCP23017() {
   for (int m = 0; m < NUM_MCP23017s; m++) {
-    mcp23017[m] = Adafruit_MCP23017(MCP23017_ADR[m]);
+    mcp23017[m] = Adafruit_MCP23017();
     mcp23017[m].begin();
+
+    for (int i = 0; i < 15; i++) {
+      mcp23017[m].pinMode(OUT_MCP[i], OUTPUT);
+    }
   }
 }
 #endif
@@ -167,6 +171,39 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
 }
 
 void setSignalLED(int index, bool ledState) {
+
+#if USE_MCP23017
+
+    if(index <= 15)
+    {
+      index = index - 0;
+      mcp23017[0].digitalWrite(OUT_MCP[index], ledState ? LOW : HIGH);
+    }else if(index >= 16 && index <= 31){
+      index = index - 16;
+      mcp23017[1].digitalWrite(OUT_MCP[index], ledState ? LOW : HIGH); 
+    }else if(index >= 32 && index <= 47){
+      index = index - 32;
+      mcp23017[2].digitalWrite(OUT_MCP[index], ledState ? LOW : HIGH);
+    }else if(index >= 48 && index <= 63){
+      index = index - 48;
+      mcp23017[3].digitalWrite(OUT_MCP[index], ledState ? LOW : HIGH);
+    }else if(index >= 64 && index <= 79){
+      index = index - 64;
+      mcp23017[4].digitalWrite(OUT_MCP[index], ledState ? LOW : HIGH);
+    }else if(index >= 80 && index <= 95){
+      index = index - 80;
+      mcp23017[5].digitalWrite(OUT_MCP[index], ledState ? LOW : HIGH);
+    }else if(index >= 96 && index <= 111){
+      index = index - 96;
+      mcp23017[6].digitalWrite(OUT_MCP[index], ledState ? LOW : HIGH);
+    }else if(index >= 112){
+      index = index - 112;
+      mcp23017[7].digitalWrite(OUT_MCP[index], ledState ? LOW : HIGH);
+    }
+
+#endif
+
+#if USE_PCF8574
   
   if(index <= 7)
     {
@@ -195,6 +232,7 @@ void setSignalLED(int index, bool ledState) {
       PCF_08.write(OUT_PCF[index], ledState ? LOW : HIGH);
     }
 
+#endif
     
 }
 
