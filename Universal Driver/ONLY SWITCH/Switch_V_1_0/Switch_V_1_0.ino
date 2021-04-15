@@ -1,5 +1,5 @@
 /*
- * PCF8574 written but not tested
+ * PCA9685 written but not tested
  */
 
 #define MATTZO_CONTROLLER_TYPE "SW"
