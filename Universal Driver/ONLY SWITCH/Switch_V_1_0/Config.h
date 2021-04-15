@@ -21,6 +21,12 @@
 // Number of switch ports
 const int NUM_SWITCHPORTS = 32; 
 
+// STATUS LED WIRING CONFIGURATION
+
+// Digital output pin to monitor controller operation (typically a LED)
+bool STATUS_LED_PIN_INSTALLED = true;  // set to false if no LED is installed
+uint8_t STATUS_LED_PIN = D8; //D0 or D8 on CPU Board
+
 //////////**********//////////
 
 // PCA9685 port expander used?
@@ -32,6 +38,24 @@ const int NUM_SWITCHPORTS = 32;
 // PCA9685 OE pin supported?
 bool PCA9685_OE_PIN_INSTALLED = true;  // set to true if OE pin is connected (false if not) max 8 OE Pins
 
+
+
+
+
+// ****************
+// Network settings
+// ****************
+
+// Trigger emergency brake upon disconnect
+#define TRIGGER_EBREAK_UPON_DISCONNECT true
+
+
+// ***************
+// Syslog settings
+// ***************
+
+// Syslog application name
+const char* SYSLOG_APP_NAME = "SW";
 
 
 // ***************************
