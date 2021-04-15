@@ -2,7 +2,7 @@
  * PCA9685 written but not tested
  */
 
-#define MATTZO_CONTROLLER_TYPE "SW"
+#define MATTZO_CONTROLLER_TYPE "OSW"
 
 
 #include <ESP8266WiFi.h>                          // WiFi library for ESP-8266
