@@ -60,7 +60,7 @@ uint8_t STATUS_LED_PIN = D8; //D0 or D8 on CPU Board
 // ***************
 
 // Syslog application name
-const char* SYSLOG_APP_NAME = "IN";
+const char* SYSLOG_APP_NAME = "OIN";
 
 
 // ***************************
