@@ -1,5 +1,5 @@
 /*
- * PCF8574 written but not tested
+ * written for PCF8574 and MCP23017 ,but not tested
  */
 
 #define MATTZO_CONTROLLER_TYPE "OIN"
