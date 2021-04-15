@@ -21,6 +21,12 @@
 // Number of sensors 
 const int NUM_SENSORS = 16; 
 
+// STATUS LED WIRING CONFIGURATION
+
+// Digital output pin to monitor controller operation (typically a LED)
+bool STATUS_LED_PIN_INSTALLED = true;  // set to false if no LED is installed
+uint8_t STATUS_LED_PIN = D8; //D0 or D8 on CPU Board
+
 //////////**********//////////
 
 // PCF8574 port expander used?
@@ -40,6 +46,21 @@ const int NUM_SENSORS = 16;
 // Number of chained PCA9685 port extenders
 #define NUM_MCP23017s 1
 
+
+// ****************
+// Network settings
+// ****************
+
+// Trigger emergency brake upon disconnect
+#define TRIGGER_EBREAK_UPON_DISCONNECT true
+
+
+// ***************
+// Syslog settings
+// ***************
+
+// Syslog application name
+const char* SYSLOG_APP_NAME = "IN";
 
 
 // ***************************
