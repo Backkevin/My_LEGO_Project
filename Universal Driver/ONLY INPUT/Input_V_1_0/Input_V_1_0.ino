@@ -2,7 +2,7 @@
  * PCF8574 written but not tested
  */
 
-#define MATTZO_CONTROLLER_TYPE "IN"
+#define MATTZO_CONTROLLER_TYPE "OIN"
 
 
 #include <ESP8266WiFi.h>                          // WiFi library for ESP-8266
