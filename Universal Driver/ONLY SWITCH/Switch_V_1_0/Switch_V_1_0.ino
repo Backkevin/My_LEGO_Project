@@ -11,11 +11,9 @@
 #include "MattzoController_Library.h"             // this file needs to be placed in the Arduino library folder
 
 
-#if USE_PCA9685
 #include <Adafruit_PWMServoDriver.h>              // Adafruit PWM Servo Driver Library for PCA9685 port expander. Tested with version 2.4.0.
 Adafruit_PWMServoDriver pca9685[NUM_PCA9685s];
 #define SERVO_FREQ 50 // Analog servos run at ~50 Hz updates
-#endif
 
 
 // ******************
@@ -38,7 +36,7 @@ const int SERVOSLEEPMODEAFTER_MS = 500;
 
 // time when servos will go to sleep mode
 bool servoSleepMode = false;
-unsigned long servoSleepModeFrom_ms = 0;
+unsigned long servoSleepModeFrom_ms = 100;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -64,7 +62,7 @@ setupPCA9685();
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////END SETUP
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#if USE_PCA9685
+
 void setupPCA9685() {
   // Initialize PWM Servo Driver object (for PCA9685)
   for (int p = 0; p < NUM_PCA9685s; p++) {
@@ -81,7 +79,6 @@ void setupPCA9685() {
     delay(10);
   }
 }
-#endif
 
 void mqttCallback(char* topic, byte* payload, unsigned int length) {
   char msg[length + 1];
