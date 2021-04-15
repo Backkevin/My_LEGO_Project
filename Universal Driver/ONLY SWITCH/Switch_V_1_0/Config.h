@@ -55,7 +55,7 @@ bool PCA9685_OE_PIN_INSTALLED = true;  // set to true if OE pin is connected (fa
 // ***************
 
 // Syslog application name
-const char* SYSLOG_APP_NAME = "SW";
+const char* SYSLOG_APP_NAME = "OSW";
 
 
 // ***************************
