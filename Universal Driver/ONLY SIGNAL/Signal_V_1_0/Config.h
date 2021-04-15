@@ -18,7 +18,7 @@
 //      Editable settings 
 // ***************************
 
-// Number of signal ports
+// Number of signal ports  (PCF8574 max 8x8=64 ,MCP32017 max 8x16=128)
 const int NUM_SIGNALPORTS = 16;
 
 // STATUS LED WIRING CONFIGURATION
@@ -30,9 +30,9 @@ uint8_t STATUS_LED_PIN = D8; //D0 or D8 on CPU Board
 //////////**********//////////
 
 // PCF8574 port expander used?
-#define USE_PCF8574 true
+#define USE_PCF8574 false
 
-// Number of chained PCF8574 port extenders
+// Number of chained PCF8574 port extenders  (max 8)
 #define NUM_PCF8574s 2
 
 // Type of PCF8574 port extenders
@@ -41,9 +41,9 @@ uint8_t STATUS_LED_PIN = D8; //D0 or D8 on CPU Board
 //////////****OR****//////////
 
 // MCP23017 port expander used?
-#define USE_MCP23017  false
+#define USE_MCP23017  true
 
-// Number of chained PCA9685 port extenders
+// Number of chained PCA9685 port extenders  (max 8)
 #define NUM_MCP23017s 1
 
 
@@ -79,7 +79,6 @@ uint8_t PCF8574_ADR[8]= {0x38, 0x39 , 0x38, 0x3A, 0x3B, 0x3C, 0x3E, 0x3F};
 
 //////////**********//////////
 
-uint8_t OUT_MCP[16] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}; 
-
-// Addresses of MCP23017 port extenders
 uint8_t MCP23017_ADR[8]= {0x20, 0x21 , 0x22, 0x23, 0x24, 0x25, 0x26, 0x27};
+
+uint8_t OUT_MCP[16] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}; 
