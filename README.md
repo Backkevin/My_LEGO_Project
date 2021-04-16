@@ -228,26 +228,13 @@ Sensor_TCRT5000_board_V_1_0
 -----------------------------------------------------------------
 >i work on a new software based on MattzoController Firmware V0.41
 
-+ only INPUTS (ok for PCF8574) (ok for MCP23017)
-+ --> INPUT Board and I16 Board @ same time
-+ 
-+ only SIGNALS (ok for PCF8574) (ok for MCP23017)   
-+ --> OUTPUT Board and O8 Board @ same time
-+ 
-+ only SWITCH (ok for PCA9685)    
-+ --> PWM Board
-+
-+ only BOOM (ok for PCA9685)    
-+ --> PWM Board
-+
-+ full SWITCH (todo for PCF8574) (todo for MCP23017) (todo for PCA9685)    
-+ --> INPUT Board or I16 Board + OUTPUT Board or O8 Board + PWM Board
-+ 
-+ full CROSSING (todo for PCF8574) (todo for MCP23017) (todo for PCA9685)    
-+ --> INPUT Board or I16 Board + OUTPUT Board or O8 Board + PWM Board
-+ 
-+ full BRIDGE (todo for PCF8574) (todo for MCP23017) (todo for PCA9685) (todo for L9110)    
-+ --> INPUT Board or I16 Board + OUTPUT Board or O8 Board + PWM Board + L9110 Board
-+ 
-+ full ELEVATOR (todo for PCF8574) (todo for MCP23017) (todo for PCA9685) (todo for L9110)    
-+ --> INPUT Board or I16 Board + OUTPUT Board or O8 Board + PWM Board + L9110 Board
++ FULL BRIDGE     --> for 2 x L9110 Board + 2 x I8O4 Board                                --> later           --> 4 motors, 16 signals, 16 inputs
++ FULL CROSSING   --> for PCA9685 Board + 2 x I8O4 Board + 2 x O8 Board                   --> later           --> 32 PWMs, 48 signals, 16 inputs 
++ FULL ELEVATOR   --> for 2 x L9110 Board + 2 x I8O4 Board + O8 Board + PCA9685 Board     --> later           --> 4 motors, 32 signals, 16 inputs, 32 PWMs
++ FULL SWITCH     --> for PCA9685 Board + 2 x I8O4 Board + 2 x O8 Board                   --> later           --> 32 PWMs, 48 signals, 16 inputs 
+
+
++ ONLY INPUT     --> written for PCF8574 or/and MCP23017           --> but not tested            -> you can use both chips at same time (64+128 inputs) 
++ ONLY OUPUT     --> written for PCF8574 or/and MCP23017           --> but not tested            -> you can use both chips at same time (64+128 outputs) 
++ ONLY SWITCH    --> written for PCA9685                           --> but not tested
++ ONLY BOOM      --> written for PCA9685                           --> but not tested
