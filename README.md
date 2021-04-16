@@ -228,8 +228,10 @@ Sensor_TCRT5000_board_V_1_0
 -----------------------------------------------------------------
 >i work on a new software based on MattzoController Firmware V0.41
 
-+ FULL BRIDGE     --> for 2 x L9110 Board + 2 x I8O4 Board                                --> later           --> 4 motors, 16 signals, 16 inputs
-+ FULL CROSSING   --> for PCA9685 Board + 2 x I8O4 Board + 2 x O8 Board                   --> later           --> 32 PWMs, 48 signals, 16 inputs 
++ FULL BRIDGE     
+* --> for 2 x L9110 Board + 2 x I8O4 Board                                --> later           --> 4 motors, 16 signals, 16 inputs
++ FULL CROSSING  
+* --> for PCA9685 Board + 2 x I8O4 Board + 2 x O8 Board                   --> later           --> 32 PWMs, 48 signals, 16 inputs 
 + FULL ELEVATOR   --> for 2 x L9110 Board + 2 x I8O4 Board + O8 Board + PCA9685 Board     --> later           --> 4 motors, 32 signals, 16 inputs, 32 PWMs
 + FULL SWITCH     --> for PCA9685 Board + 2 x I8O4 Board + 2 x O8 Board                   --> later           --> 32 PWMs, 48 signals, 16 inputs 
 
