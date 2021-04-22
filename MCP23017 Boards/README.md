@@ -23,6 +23,11 @@
 
 + [O8](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/O8)
 	+ V1.0
+
++ !!!!!!!  max I for the MCP23017 125ma  so we need to change the R470 resistors to 1K2 
++ or
++ dont install the control LEDs on the board so you can keep the R470 resistors
+
 		* Work 50%
 		* Partlist not OK
 		* [GERBER FILES](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/O8/GERBER%20FILES)
