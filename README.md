@@ -149,6 +149,10 @@ based on MattzoController Firmware V0.3
 
 + [MCP23017 Boards O8](https://github.com/Backkevin/My_LEGO_Project/tree/master/MCP23017%20Boards/O8)
 
++ !!!!!!!  max I for the MCP23017 125ma  so we need to change the R470 resistors to 1K2 
++ or
++ dont install the control LEDs on the board so you can keep the R470 resistors
+
 	+ V1.0
 		* Work 50%
 		* Partlist KO
