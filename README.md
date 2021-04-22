@@ -20,7 +20,7 @@ based on MattzoController Firmware V0.3
 + PIN 11 --> TX
 + PIN 12 --> D9
 + PIN 13 --> +5VDC (Bug 3A/5A /\ AC/DC BUG 1A)   Layouts are not ready for the 5A BUG (this bug is bigger, change in the next layout)
-+ PIN 14 --> +5VDC
++ PIN 14 --> +5VDC (Bug 3A/5A /\ AC/DC BUG 1A)   Layouts are not ready for the 5A BUG (this bug is bigger, change in the next layout)
 + PIN 15 --> GND
 + PIN 16 --> GND
 
