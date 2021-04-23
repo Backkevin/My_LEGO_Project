@@ -1,18 +1,22 @@
 + FULL BRIDGE     
 	* --> for 2 x L9110 Board + 2 x I8O4 Board  
-	* --> 4 motors, 16 signals, 16 inputs
+	* --> 4 motors, 8 signals, 24 inputs
+	* --> AUTO MODE
 	* --> later           
 + FULL CROSSING  
 	* --> for PCA9685 Board + 2 x I8O4 Board + 2 x O8 Board                             
-	* --> 32 PWMs, 48 signals, 16 inputs 
+	* --> 32 PWMs, 24 signals, 16 inputs 
+	* --> AUTO MODE
 	* --> later
 + FULL ELEVATOR  
 	* --> for 2 x L9110 Board + 2 x I8O4 Board + O8 Board + PCA9685 Board      
-	* --> 4 motors, 32 signals, 16 inputs, 32 PWMs
+	* --> 4 motors, 12 signals, 24 inputs, 32 PWMs
+	* --> AUTO MODE
 	* --> later
 + FULL SWITCH   
 	* --> for PCA9685 Board + 2 x I8O4 Board + 2 x O8 Board                   
-	* --> 32 PWMs, 48 signals, 16 inputs 
+	* --> 32 PWMs, 24 signals, 16 inputs 
+	* --> AUTO MODE
 	* --> later
 
 
