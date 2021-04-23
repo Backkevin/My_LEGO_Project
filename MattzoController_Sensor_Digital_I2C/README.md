@@ -19,7 +19,7 @@
                     
   Part Name   |      PIC      |   Part Info            | Part Quantity |   Part Link 
 ------------- | ------------- | ---------------------- | ------------- | -------------
-LED           |               | LED 5 mm               | 16            |
+LED           |               | LED 3 mm               | 16            |
 R             |               | 470 Ohm                | 16            |
 R             |               | 10K Ohm                | 16            |
 Jumper        |               |                        |               |
