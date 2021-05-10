@@ -10591,47 +10591,65 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/21952a.pdf</description>
 <library name="userlib">
 <description>User library</description>
 <packages>
-<package name="CP8-ADJ">
+<package name="CP8-ADJ-B">
 <polygon width="0.127" layer="21" pour="hatch">
-<vertex x="-23.41" y="8.65"/>
-<vertex x="21.59" y="8.65"/>
-<vertex x="21.59" y="-11.35"/>
-<vertex x="-23.41" y="-11.35"/>
+<vertex x="-20.87" y="9.92"/>
+<vertex x="22.86" y="9.92"/>
+<vertex x="22.86" y="-11.35"/>
+<vertex x="-20.87" y="-11.35"/>
 </polygon>
-<pad name="IN+" x="-21.81" y="7.05" drill="1.6" shape="octagon"/>
-<pad name="IN-" x="-21.81" y="-9.75" drill="1.6" shape="octagon"/>
-<pad name="OUT-" x="18.72" y="-9.75" drill="1.6" shape="octagon"/>
-<pad name="OUT+" x="18.72" y="7.05" drill="1.6" shape="octagon"/>
+<pad name="INA+" x="-19.27" y="8.32" drill="1.6" shape="octagon"/>
+<pad name="INA-" x="-19.27" y="-9.75" drill="1.6" shape="octagon"/>
+<pad name="OUTA-" x="21.26" y="-9.75" drill="1.6" shape="octagon"/>
+<pad name="OUTA+" x="21.26" y="8.32" drill="1.6" shape="octagon"/>
+<polygon width="0.127" layer="21" pour="hatch">
+<vertex x="-27.22" y="11.19"/>
+<vertex x="27.94" y="11.19"/>
+<vertex x="27.94" y="-12.62"/>
+<vertex x="-27.22" y="-12.62"/>
+</polygon>
+<pad name="INB+" x="-25.62" y="9.59" drill="1.6" shape="octagon"/>
+<pad name="INB-" x="-25.62" y="-11.02" drill="1.6" shape="octagon"/>
+<pad name="OUTB-" x="26.34" y="-11.02" drill="1.6" shape="octagon"/>
+<pad name="OUTB+" x="26.34" y="9.59" drill="1.6" shape="octagon"/>
 </package>
 </packages>
 <symbols>
-<symbol name="VREG-CP8">
+<symbol name="VREG-CP8-B">
 <wire x1="-9.906" y1="7.62" x2="10.414" y2="7.62" width="0.254" layer="94"/>
 <wire x1="10.414" y1="7.62" x2="10.414" y2="-7.62" width="0.254" layer="94"/>
 <wire x1="10.414" y1="-7.62" x2="-9.906" y2="-7.62" width="0.254" layer="94"/>
 <wire x1="-9.906" y1="-7.62" x2="-9.906" y2="7.62" width="0.254" layer="94"/>
-<pin name="IN+" x="-14.986" y="2.54" length="middle" direction="pas"/>
-<pin name="IN-" x="-14.986" y="-2.54" length="middle" direction="pas"/>
-<pin name="OUT+" x="15.494" y="2.54" length="middle" direction="pas" rot="R180"/>
-<pin name="OUT-" x="15.494" y="-2.54" length="middle" direction="pas" rot="R180"/>
+<pin name="INA+" x="-14.986" y="2.54" length="middle" direction="pas"/>
+<pin name="INA-" x="-14.986" y="-2.54" length="middle" direction="pas"/>
+<pin name="OUTA+" x="15.494" y="2.54" length="middle" direction="pas" rot="R180"/>
+<pin name="OUTA-" x="15.494" y="-2.54" length="middle" direction="pas" rot="R180"/>
 <text x="-9.906" y="8.89" size="1.27" layer="95">NAME</text>
+<pin name="INB+" x="-15.24" y="5.08" length="middle" direction="pas"/>
+<pin name="INB-" x="-15.24" y="-5.08" length="middle" direction="pas"/>
+<pin name="OUTB+" x="15.24" y="5.08" length="middle" direction="pas" rot="R180"/>
+<pin name="OUTB-" x="15.24" y="-5.08" length="middle" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="CP8-ADJ">
+<deviceset name="CP8-ADJ-B">
 <description>Voltage regulator
 IN: 7-35V
 OUT: ADJ</description>
 <gates>
-<gate name="G$1" symbol="VREG-CP8" x="0" y="0"/>
+<gate name="G$1" symbol="VREG-CP8-B" x="-2.54" y="5.08"/>
 </gates>
 <devices>
-<device name="" package="CP8-ADJ">
+<device name="" package="CP8-ADJ-B">
 <connects>
-<connect gate="G$1" pin="IN+" pad="IN+"/>
-<connect gate="G$1" pin="IN-" pad="IN-"/>
-<connect gate="G$1" pin="OUT+" pad="OUT+"/>
-<connect gate="G$1" pin="OUT-" pad="OUT-"/>
+<connect gate="G$1" pin="INA+" pad="INA+"/>
+<connect gate="G$1" pin="INA-" pad="INA-"/>
+<connect gate="G$1" pin="INB+" pad="INB+"/>
+<connect gate="G$1" pin="INB-" pad="INB-"/>
+<connect gate="G$1" pin="OUTA+" pad="OUTA+"/>
+<connect gate="G$1" pin="OUTA-" pad="OUTA-"/>
+<connect gate="G$1" pin="OUTB+" pad="OUTB+"/>
+<connect gate="G$1" pin="OUTB-" pad="OUTB-"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -10997,7 +11015,7 @@ Grid 2.54 mm&lt;p&gt;
 <part name="C3" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="C-EU" device="025-024X044" package3d_urn="urn:adsk.eagle:package:23630/1"/>
 <part name="C4" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="C-EU" device="025-024X044" package3d_urn="urn:adsk.eagle:package:23630/1"/>
 <part name="C5" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="C-EU" device="025-024X044" package3d_urn="urn:adsk.eagle:package:23630/1"/>
-<part name="U$2" library="userlib" deviceset="CP8-ADJ" device=""/>
+<part name="U$2" library="userlib" deviceset="CP8-ADJ-B" device=""/>
 <part name="6-12VDC" library="con-phoenix-508" library_urn="urn:adsk.eagle:library:176" deviceset="MSTBA2" device="" package3d_urn="urn:adsk.eagle:package:9615/1"/>
 <part name="F1" library="fuse" library_urn="urn:adsk.eagle:library:233" deviceset="SH22,5A" device="" package3d_urn="urn:adsk.eagle:package:14070/1"/>
 <part name="F2" library="fuse" library_urn="urn:adsk.eagle:library:233" deviceset="SH22,5A" device="" package3d_urn="urn:adsk.eagle:package:14070/1"/>
@@ -11335,7 +11353,7 @@ Grid 2.54 mm&lt;p&gt;
 <wire x1="251.46" y1="-81.28" x2="251.46" y2="-91.44" width="0.1524" layer="91"/>
 <wire x1="251.46" y1="-91.44" x2="195.58" y2="-91.44" width="0.1524" layer="91"/>
 <junction x="195.58" y="-91.44"/>
-<pinref part="U$2" gate="G$1" pin="OUT-"/>
+<pinref part="U$2" gate="G$1" pin="OUTA-"/>
 <wire x1="231.394" y1="-106.68" x2="251.46" y2="-106.68" width="0.1524" layer="91"/>
 <wire x1="251.46" y1="-106.68" x2="251.46" y2="-91.44" width="0.1524" layer="91"/>
 <junction x="251.46" y="-91.44"/>
@@ -11778,21 +11796,21 @@ Grid 2.54 mm&lt;p&gt;
 </net>
 <net name="N$37" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="IN+"/>
+<pinref part="U$2" gate="G$1" pin="INA+"/>
 <pinref part="F1" gate="1" pin="1"/>
 <wire x1="200.914" y1="-101.6" x2="185.42" y2="-101.6" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$38" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="IN-"/>
+<pinref part="U$2" gate="G$1" pin="INA-"/>
 <pinref part="6-12VDC" gate="-2" pin="1"/>
 <wire x1="200.914" y1="-106.68" x2="170.18" y2="-106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$39" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="OUT+"/>
+<pinref part="U$2" gate="G$1" pin="OUTA+"/>
 <pinref part="F2" gate="1" pin="2"/>
 <wire x1="231.394" y1="-101.6" x2="236.22" y2="-101.6" width="0.1524" layer="91"/>
 </segment>
