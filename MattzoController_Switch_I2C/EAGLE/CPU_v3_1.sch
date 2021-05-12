@@ -686,14 +686,14 @@ Based on the previous libraries:
 <pad name="OUTA+" x="21.26" y="8.32" drill="1.6" shape="octagon"/>
 <polygon width="0.127" layer="21" pour="hatch">
 <vertex x="-27.22" y="11.19"/>
-<vertex x="27.94" y="11.19"/>
-<vertex x="27.94" y="-12.62"/>
+<vertex x="26.67" y="11.19"/>
+<vertex x="26.67" y="-12.62"/>
 <vertex x="-27.22" y="-12.62"/>
 </polygon>
 <pad name="INB+" x="-25.62" y="9.59" drill="1.6" shape="octagon"/>
 <pad name="INB-" x="-25.62" y="-11.02" drill="1.6" shape="octagon"/>
-<pad name="OUTB-" x="26.34" y="-11.02" drill="1.6" shape="octagon"/>
-<pad name="OUTB+" x="26.34" y="9.59" drill="1.6" shape="octagon"/>
+<pad name="OUTB-" x="25.07" y="-11.02" drill="1.6" shape="octagon"/>
+<pad name="OUTB+" x="25.07" y="9.59" drill="1.6" shape="octagon"/>
 </package>
 </packages>
 <symbols>
