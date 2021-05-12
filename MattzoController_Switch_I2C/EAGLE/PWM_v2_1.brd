@@ -289,9 +289,9 @@ angled</description>
 </package>
 </packages>
 </library>
-<library name="adafruit">
+<library name="adafruit" urn="urn:adsk.eagle:library:420">
 <packages>
-<package name="1X06-CLEANBIG">
+<package name="1X06-CLEANBIG" urn="urn:adsk.eagle:footprint:6240067/1" library_version="2">
 <pad name="1" x="-6.35" y="0" drill="1.016" diameter="1.778" shape="octagon" rot="R90"/>
 <pad name="2" x="-3.81" y="0" drill="1.016" diameter="1.778" shape="octagon" rot="R90"/>
 <pad name="3" x="-1.27" y="0" drill="1.016" diameter="1.778" shape="octagon" rot="R90"/>
@@ -308,6 +308,13 @@ angled</description>
 <rectangle x1="6.096" y1="-0.254" x2="6.604" y2="0.254" layer="51"/>
 </package>
 </packages>
+<packages3d>
+<package3d name="1X06-CLEANBIG" urn="urn:adsk.eagle:package:6240713/1" type="box" library_version="2">
+<packageinstances>
+<packageinstance name="1X06-CLEANBIG"/>
+</packageinstances>
+</package3d>
+</packages3d>
 </library>
 <library name="userlib">
 <description>User library</description>
@@ -325,14 +332,14 @@ angled</description>
 <pad name="OUTA+" x="21.26" y="8.32" drill="1.6" shape="octagon"/>
 <polygon width="0.127" layer="21" pour="hatch">
 <vertex x="-27.22" y="11.19"/>
-<vertex x="27.94" y="11.19"/>
-<vertex x="27.94" y="-12.62"/>
+<vertex x="26.67" y="11.19"/>
+<vertex x="26.67" y="-12.62"/>
 <vertex x="-27.22" y="-12.62"/>
 </polygon>
 <pad name="INB+" x="-25.62" y="9.59" drill="1.6" shape="octagon"/>
 <pad name="INB-" x="-25.62" y="-11.02" drill="1.6" shape="octagon"/>
-<pad name="OUTB-" x="26.34" y="-11.02" drill="1.6" shape="octagon"/>
-<pad name="OUTB+" x="26.34" y="9.59" drill="1.6" shape="octagon"/>
+<pad name="OUTB-" x="25.07" y="-11.02" drill="1.6" shape="octagon"/>
+<pad name="OUTB+" x="25.07" y="9.59" drill="1.6" shape="octagon"/>
 </package>
 </packages>
 </library>
@@ -785,17 +792,17 @@ design rules under a new name.</description>
 <attribute name="POPULARITY" value="0" x="45.72" y="83.82" size="1.778" layer="27" display="off"/>
 </element>
 <element name="J2" library="microbuilder" package="TERMBLOCK_1X2-3.5MM" value="" x="67.437" y="41.91" smashed="yes" rot="R270"/>
-<element name="JP7" library="adafruit" package="1X06-CLEANBIG" value="" x="76.2" y="12.7" smashed="yes" rot="R180">
+<element name="JP7" library="adafruit" library_urn="urn:adsk.eagle:library:420" package="1X06-CLEANBIG" package3d_urn="urn:adsk.eagle:package:6240713/1" value="" x="76.2" y="12.7" smashed="yes" rot="R180">
 <attribute name="VALUE" x="83.82" y="15.875" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="JP8" library="adafruit" package="1X06-CLEANBIG" value="" x="76.2" y="71.12" smashed="yes" rot="R180">
+<element name="JP8" library="adafruit" library_urn="urn:adsk.eagle:library:420" package="1X06-CLEANBIG" package3d_urn="urn:adsk.eagle:package:6240713/1" value="" x="76.2" y="71.12" smashed="yes" rot="R180">
 <attribute name="VALUE" x="83.82" y="74.295" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="J3" library="microbuilder" package="TERMBLOCK_1X2-3.5MM" value="" x="22.733" y="41.91" smashed="yes" rot="R90"/>
-<element name="JP13" library="adafruit" package="1X06-CLEANBIG" value="" x="13.97" y="71.12" smashed="yes">
+<element name="JP13" library="adafruit" library_urn="urn:adsk.eagle:library:420" package="1X06-CLEANBIG" package3d_urn="urn:adsk.eagle:package:6240713/1" value="" x="13.97" y="71.12" smashed="yes">
 <attribute name="VALUE" x="6.35" y="67.945" size="1.27" layer="27"/>
 </element>
-<element name="JP14" library="adafruit" package="1X06-CLEANBIG" value="" x="13.97" y="12.7" smashed="yes">
+<element name="JP14" library="adafruit" library_urn="urn:adsk.eagle:library:420" package="1X06-CLEANBIG" package3d_urn="urn:adsk.eagle:package:6240713/1" value="" x="13.97" y="12.7" smashed="yes">
 <attribute name="VALUE" x="6.35" y="9.525" size="1.27" layer="27"/>
 </element>
 <element name="U$2" library="userlib" package="CP8-ADJ-B" value="CP8-ADJ-B" x="50.8" y="39.37" smashed="yes" rot="R90"/>
@@ -835,7 +842,7 @@ design rules under a new name.</description>
 <contactref element="J2" pad="2"/>
 <contactref element="U$2" pad="OUTA-"/>
 <contactref element="U$2" pad="OUTB-"/>
-<wire x1="61.82" y1="65.71" x2="61.82" y2="61.9" width="1.27" layer="1"/>
+<wire x1="61.82" y1="64.44" x2="61.82" y2="61.9" width="1.27" layer="1"/>
 <wire x1="61.82" y1="61.9" x2="60.55" y2="60.63" width="1.27" layer="1"/>
 <wire x1="60.55" y1="50.497" x2="67.437" y2="43.61" width="1.27" layer="1"/>
 <wire x1="60.55" y1="60.63" x2="60.55" y2="50.497" width="1.27" layer="1"/>
@@ -982,9 +989,9 @@ design rules under a new name.</description>
 <contactref element="F2" pad="2"/>
 <contactref element="U$2" pad="OUTB+"/>
 <wire x1="33.02" y1="67.1322" x2="39.7878" y2="67.1322" width="1.27" layer="1"/>
-<wire x1="39.7878" y1="67.1322" x2="41.21" y2="65.71" width="1.27" layer="1"/>
-<wire x1="41.21" y1="65.71" x2="42.48" y2="64.44" width="1.27" layer="1"/>
-<wire x1="42.48" y1="64.44" x2="42.48" y2="60.63" width="1.27" layer="1"/>
+<wire x1="39.7878" y1="67.1322" x2="41.21" y2="64.44" width="1.27" layer="1"/>
+<wire x1="41.21" y1="64.44" x2="41.21" y2="61.9" width="1.27" layer="1"/>
+<wire x1="41.21" y1="61.9" x2="42.48" y2="60.63" width="1.27" layer="1"/>
 </signal>
 <signal name="N$14">
 <contactref element="JP7" pad="5"/>
