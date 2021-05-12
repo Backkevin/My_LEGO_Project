@@ -1270,9 +1270,9 @@ Based on the previous libraries:
 <instance part="X4" gate="-16" x="40.64" y="109.22" smashed="yes" rot="R90">
 <attribute name="NAME" x="41.402" y="110.236" size="1.524" layer="95" rot="R90"/>
 </instance>
-<instance part="J2" gate="G$1" x="170.18" y="30.48" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="172.72" y="25.4" size="1.27" layer="96" rot="MR0"/>
-<attribute name="NAME" x="172.72" y="38.1" size="1.27" layer="95" rot="MR0"/>
+<instance part="J2" gate="G$1" x="167.64" y="30.48" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="170.18" y="25.4" size="1.27" layer="96" rot="MR0"/>
+<attribute name="NAME" x="170.18" y="38.1" size="1.27" layer="95" rot="MR0"/>
 </instance>
 <instance part="JP7" gate="A" x="129.54" y="30.48" smashed="yes">
 <attribute name="NAME" x="123.19" y="41.275" size="1.778" layer="95"/>
@@ -1326,8 +1326,13 @@ Based on the previous libraries:
 <wire x1="175.26" y1="81.28" x2="175.26" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="U$2" gate="G$1" pin="OUTA-"/>
 <wire x1="175.26" y1="68.58" x2="175.26" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="30.48" x2="172.72" y2="30.48" width="0.1524" layer="91"/>
 <wire x1="192.786" y1="68.58" x2="175.26" y2="68.58" width="0.1524" layer="91"/>
 <junction x="175.26" y="68.58"/>
+<pinref part="U$2" gate="G$1" pin="OUTB-"/>
+<wire x1="193.04" y1="71.12" x2="192.786" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="192.786" y1="71.12" x2="192.786" y2="68.58" width="0.1524" layer="91"/>
+<junction x="192.786" y="68.58"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -1337,7 +1342,7 @@ Based on the previous libraries:
 <pinref part="J2" gate="G$1" pin="1"/>
 <wire x1="177.8" y1="83.82" x2="177.8" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="177.8" y1="63.5" x2="177.8" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="177.8" y1="33.02" x2="175.26" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="33.02" x2="172.72" y2="33.02" width="0.1524" layer="91"/>
 <junction x="177.8" y="63.5"/>
 <wire x1="180.34" y1="63.5" x2="177.8" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="F2" gate="1" pin="1"/>
@@ -1447,6 +1452,10 @@ Based on the previous libraries:
 <pinref part="X1" gate="-2" pin="1"/>
 <pinref part="U$2" gate="G$1" pin="INA-"/>
 <wire x1="233.68" y1="68.58" x2="223.266" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="INB-"/>
+<wire x1="223.52" y1="71.12" x2="223.266" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="223.266" y1="71.12" x2="223.266" y2="68.58" width="0.1524" layer="91"/>
+<junction x="223.266" y="68.58"/>
 </segment>
 </net>
 <net name="N$9" class="0">
@@ -1454,6 +1463,9 @@ Based on the previous libraries:
 <pinref part="U$2" gate="G$1" pin="INA+"/>
 <pinref part="F1" gate="1" pin="1"/>
 <wire x1="223.266" y1="63.5" x2="223.52" y2="63.5" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="INB+"/>
+<wire x1="223.52" y1="60.96" x2="223.52" y2="63.5" width="0.1524" layer="91"/>
+<junction x="223.52" y="63.5"/>
 </segment>
 </net>
 <net name="N$10" class="0">
@@ -1467,6 +1479,10 @@ Based on the previous libraries:
 <pinref part="U$2" gate="G$1" pin="OUTA+"/>
 <wire x1="192.786" y1="63.5" x2="190.5" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="F2" gate="1" pin="2"/>
+<pinref part="U$2" gate="G$1" pin="OUTB+"/>
+<wire x1="193.04" y1="60.96" x2="193.04" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="63.5" x2="192.786" y2="63.5" width="0.1524" layer="91"/>
+<junction x="192.786" y="63.5"/>
 </segment>
 </net>
 <net name="N$14" class="0">
@@ -1490,6 +1506,7 @@ Based on the previous libraries:
 <pinref part="JP8" gate="A" pin="5"/>
 <wire x1="127" y1="27.94" x2="137.16" y2="27.94" width="0.1524" layer="91"/>
 <junction x="127" y="27.94"/>
+<junction x="12.7" y="45.72"/>
 </segment>
 </net>
 <net name="N$15" class="0">
