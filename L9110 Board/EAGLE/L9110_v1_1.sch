@@ -11357,6 +11357,10 @@ Grid 2.54 mm&lt;p&gt;
 <wire x1="231.394" y1="-106.68" x2="251.46" y2="-106.68" width="0.1524" layer="91"/>
 <wire x1="251.46" y1="-106.68" x2="251.46" y2="-91.44" width="0.1524" layer="91"/>
 <junction x="251.46" y="-91.44"/>
+<pinref part="U$2" gate="G$1" pin="OUTB-"/>
+<wire x1="231.14" y1="-109.22" x2="231.14" y2="-106.68" width="0.1524" layer="91"/>
+<wire x1="231.14" y1="-106.68" x2="231.394" y2="-106.68" width="0.1524" layer="91"/>
+<junction x="231.394" y="-106.68"/>
 </segment>
 </net>
 <net name="VCC5.1" class="0">
@@ -11799,6 +11803,10 @@ Grid 2.54 mm&lt;p&gt;
 <pinref part="U$2" gate="G$1" pin="INA+"/>
 <pinref part="F1" gate="1" pin="1"/>
 <wire x1="200.914" y1="-101.6" x2="185.42" y2="-101.6" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="INB+"/>
+<wire x1="200.66" y1="-99.06" x2="200.914" y2="-99.06" width="0.1524" layer="91"/>
+<wire x1="200.914" y1="-99.06" x2="200.914" y2="-101.6" width="0.1524" layer="91"/>
+<junction x="200.914" y="-101.6"/>
 </segment>
 </net>
 <net name="N$38" class="0">
@@ -11806,6 +11814,10 @@ Grid 2.54 mm&lt;p&gt;
 <pinref part="U$2" gate="G$1" pin="INA-"/>
 <pinref part="6-12VDC" gate="-2" pin="1"/>
 <wire x1="200.914" y1="-106.68" x2="170.18" y2="-106.68" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="INB-"/>
+<wire x1="200.914" y1="-106.68" x2="200.914" y2="-109.22" width="0.1524" layer="91"/>
+<wire x1="200.914" y1="-109.22" x2="200.66" y2="-109.22" width="0.1524" layer="91"/>
+<junction x="200.914" y="-106.68"/>
 </segment>
 </net>
 <net name="N$39" class="0">
@@ -11813,6 +11825,10 @@ Grid 2.54 mm&lt;p&gt;
 <pinref part="U$2" gate="G$1" pin="OUTA+"/>
 <pinref part="F2" gate="1" pin="2"/>
 <wire x1="231.394" y1="-101.6" x2="236.22" y2="-101.6" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="OUTB+"/>
+<wire x1="231.394" y1="-101.6" x2="231.14" y2="-101.6" width="0.1524" layer="91"/>
+<wire x1="231.14" y1="-101.6" x2="231.14" y2="-99.06" width="0.1524" layer="91"/>
+<junction x="231.394" y="-101.6"/>
 </segment>
 </net>
 <net name="N$1" class="0">
