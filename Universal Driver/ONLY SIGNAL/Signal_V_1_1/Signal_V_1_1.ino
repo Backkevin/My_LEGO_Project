@@ -31,8 +31,8 @@ PCF8574 PCF_08(PCF8574_ADR[7]);                             // set adr from PCF8
 // ******************
 
 #if USE_MCP23017
-#include "Adafruit_MCP23017.h"
-Adafruit_MCP23017 mcp23017[NUM_MCP23017s];
+#include "Adafruit_MCP23X17.h"
+Adafruit_MCP23X17 mcp23017[NUM_MCP23017s];
 #endif
 
 
@@ -91,8 +91,8 @@ void setupPCF8574() {
 #if USE_MCP23017
 void setupMCP23017() {
   for (int m = 0; m < NUM_MCP23017s; m++) {
-    mcp23017[m] = Adafruit_MCP23017();
-    mcp23017[m].begin();
+    mcp23017[m] = Adafruit_MCP23X17();
+    mcp23017[m].begin_I2C();
 
     for (int i = 0; i < 15; i++) {
       mcp23017[m].pinMode(OUT_MCP[i], OUTPUT);
